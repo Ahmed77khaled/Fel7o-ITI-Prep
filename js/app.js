@@ -1160,8 +1160,17 @@ const Render = (() => {
       quoteEl.querySelector('.quote-author').textContent = `— ${quote.author}`;
     }
 
-    // KPIs
-    const remaining = STUDY_DATA.days.length - completedDays;
+    // KPIs: Calculate calendar days remaining until the exam (July 27)
+    let remaining = STUDY_DATA.days.length - completedDays; // Fallback
+    if (APP_CONFIG.examDate) {
+      const examDate = new Date(APP_CONFIG.examDate);
+      const today = new Date();
+      const d1 = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+      const d2 = new Date(examDate.getFullYear(), examDate.getMonth(), examDate.getDate());
+      const diffTime = d2.getTime() - d1.getTime();
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      remaining = Math.max(0, diffDays);
+    }
     if (document.getElementById('kpi-progress'))   document.getElementById('kpi-progress').textContent   = pct + '%';
     if (document.getElementById('kpi-completed'))  document.getElementById('kpi-completed').textContent  = completedDays;
     if (document.getElementById('kpi-remaining'))  document.getElementById('kpi-remaining').textContent  = remaining;

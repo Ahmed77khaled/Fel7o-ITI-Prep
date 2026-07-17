@@ -238,6 +238,7 @@ const APP_CONFIG = {
   appNameAr:  "منصة فيلحو للتأهيل للـ ITI",
   totalDays:  11,
   startDate:  "2026-07-17", // The start date of the study plan (today)
+  examDate:   "2026-07-27", // The exam date / last day of the plan
   dailyHours: { min: 3, max: 5 },
   motivationalQuotes: [
     { text: "الفرق بين الناجح والفاشل هو الالتزام في الأيام الصعبة.", author: "الـ Mentor" },
