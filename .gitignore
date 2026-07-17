@@ -1,0 +1,13 @@
+# Temporary and scratch directories
+scratch/
+.tempmediaStorage/
+.system_generated/
+
+# Large unused screenshots/images
+Screenshot_*.jpeg
+WhatsApp Image *.jpeg
+
+# System files
+desktop.ini
+.DS_Store
+Thumbs.db

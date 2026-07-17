@@ -1,0 +1,1807 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>خطة ITI – 12 يوم للنجاح</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary:    #1a1a2e;
+      --secondary:  #16213e;
+      --accent:     #0f3460;
+      --gold:       #e94560;
+      --gold2:      #f5a623;
+      --green:      #00d4aa;
+      --blue:       #4fc3f7;
+      --purple:     #b39ddb;
+      --light:      #f0f4ff;
+      --white:      #ffffff;
+      --text-dark:  #1a1a2e;
+      --text-gray:  #555;
+      --border:     #e0e7ff;
+      --shadow:     0 8px 32px rgba(26,26,46,0.13);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Cairo', 'Tajawal', sans-serif;
+      background: #f5f7ff;
+      color: var(--text-dark);
+      direction: rtl;
+      font-size: 14px;
+    }
+
+    /* ========== COVER PAGE ========== */
+    .cover {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+    }
+
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(229,69,96,0.18) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .cover::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -80px;
+      width: 350px; height: 350px;
+      background: radial-gradient(circle, rgba(79,195,247,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .cover-badge {
+      background: linear-gradient(135deg, #e94560, #f5a623);
+      color: white;
+      padding: 10px 32px;
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 32px;
+      display: inline-block;
+    }
+
+    .cover h1 {
+      font-size: 58px;
+      font-weight: 900;
+      color: white;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .cover h1 span {
+      background: linear-gradient(135deg, #e94560, #f5a623);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .cover h2 {
+      font-size: 24px;
+      color: rgba(255,255,255,0.75);
+      font-weight: 400;
+      margin-bottom: 48px;
+    }
+
+    .cover-stats {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+
+    .stat-box {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 16px;
+      padding: 24px 32px;
+      backdrop-filter: blur(10px);
+      min-width: 130px;
+    }
+    .stat-box .num {
+      font-size: 42px;
+      font-weight: 900;
+      background: linear-gradient(135deg, #e94560, #f5a623);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+    }
+    .stat-box .label {
+      color: rgba(255,255,255,0.7);
+      font-size: 13px;
+      margin-top: 6px;
+    }
+
+    .cover-stages {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .stage-pill {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* ========== PAGE WRAPPER ========== */
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 48px 32px;
+    }
+
+    /* ========== SECTION HEADERS ========== */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 3px solid var(--border);
+    }
+    .section-header .icon {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+    .section-header h2 {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--primary);
+    }
+    .section-header p {
+      color: var(--text-gray);
+      font-size: 14px;
+      margin-top: 2px;
+    }
+
+    /* ========== OVERVIEW CARDS ========== */
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+    .overview-card {
+      background: white;
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      border-right: 5px solid transparent;
+      transition: transform 0.2s;
+    }
+    .overview-card:hover { transform: translateY(-3px); }
+    .overview-card.c1 { border-right-color: #4fc3f7; }
+    .overview-card.c2 { border-right-color: #f5a623; }
+    .overview-card.c3 { border-right-color: #e94560; }
+    .overview-card.c4 { border-right-color: #00d4aa; }
+    .overview-card.c5 { border-right-color: #b39ddb; }
+
+    .oc-icon { font-size: 32px; margin-bottom: 12px; }
+    .oc-title { font-size: 15px; font-weight: 700; color: var(--primary); margin-bottom: 4px; }
+    .oc-sub   { font-size: 12px; color: var(--text-gray); line-height: 1.5; }
+    .oc-weight {
+      margin-top: 12px;
+      display: inline-block;
+      background: var(--light);
+      padding: 3px 12px;
+      border-radius: 50px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    /* ========== DAILY SCHEDULE ========== */
+    .day-card {
+      background: white;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      margin-bottom: 28px;
+      overflow: hidden;
+      page-break-inside: avoid;
+    }
+
+    .day-header {
+      padding: 20px 28px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .day-num {
+      width: 56px; height: 56px;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; font-weight: 900;
+      color: white;
+      flex-shrink: 0;
+    }
+    .day-title { font-size: 18px; font-weight: 800; color: var(--primary); }
+    .day-quote { font-size: 12px; color: var(--text-gray); margin-top: 2px; font-style: italic; }
+    .day-badge {
+      margin-right: auto;
+      padding: 5px 16px;
+      border-radius: 50px;
+      font-size: 11px;
+      font-weight: 700;
+      background: var(--light);
+      color: var(--accent);
+    }
+
+    .day-body {
+      padding: 0 28px 24px;
+    }
+
+    .period {
+      margin-bottom: 16px;
+    }
+    .period-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-gray);
+      margin-bottom: 10px;
+    }
+    .period-label .dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+    }
+
+    .task-row {
+      display: grid;
+      grid-template-columns: 90px 1fr auto;
+      gap: 12px;
+      align-items: start;
+      padding: 10px 14px;
+      border-radius: 12px;
+      margin-bottom: 6px;
+      background: var(--light);
+    }
+    .task-time {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-gray);
+      white-space: nowrap;
+    }
+    .task-content h4 { font-size: 14px; font-weight: 700; color: var(--primary); margin-bottom: 3px; }
+    .task-content p  { font-size: 12px; color: var(--text-gray); line-height: 1.5; }
+    .task-tag {
+      padding: 3px 10px;
+      border-radius: 50px;
+      font-size: 10px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .tag-english  { background: #e3f2fd; color: #1565c0; }
+    .tag-iq       { background: #fff3e0; color: #e65100; }
+    .tag-linux    { background: #e8f5e9; color: #2e7d32; }
+    .tag-network  { background: #f3e5f5; color: #6a1b9a; }
+    .tag-os       { background: #fce4ec; color: #880e4f; }
+    .tag-oop      { background: #e0f7fa; color: #006064; }
+    .tag-db       { background: #fff8e1; color: #f57f17; }
+    .tag-devops   { background: #e8eaf6; color: #283593; }
+    .tag-hr       { background: #fbe9e7; color: #bf360c; }
+    .tag-mock     { background: #1a1a2e; color: white; }
+    .tag-revision { background: #f1f8e9; color: #33691e; }
+    .tag-break    { background: #f5f5f5; color: #9e9e9e; }
+    .tag-ds       { background: #e0f2f1; color: #004d40; }
+
+    .break-row {
+      display: flex; align-items: center; gap: 8px;
+      padding: 6px 14px; font-size: 12px; color: #aaa;
+    }
+    .break-line { flex: 1; height: 1px; background: #eee; }
+
+    .day-checkpoint {
+      margin-top: 16px;
+      background: linear-gradient(135deg, #1a1a2e, #0f3460);
+      border-radius: 12px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .day-checkpoint .ck-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+    .day-checkpoint h4 { color: var(--gold2); font-size: 12px; font-weight: 700; margin-bottom: 4px; }
+    .day-checkpoint p  { color: rgba(255,255,255,0.8); font-size: 11px; line-height: 1.6; }
+
+    /* ========== COLOR GRADIENTS FOR DAY NUMBERS ========== */
+    .g1 { background: linear-gradient(135deg,#4fc3f7,#0288d1); }
+    .g2 { background: linear-gradient(135deg,#f5a623,#e65100); }
+    .g3 { background: linear-gradient(135deg,#00d4aa,#00897b); }
+    .g4 { background: linear-gradient(135deg,#e94560,#c62828); }
+    .g5 { background: linear-gradient(135deg,#b39ddb,#7b1fa2); }
+    .g6 { background: linear-gradient(135deg,#1a1a2e,#e94560); }
+    .g7 { background: linear-gradient(135deg,#f5a623,#e94560); }
+    .g8 { background: linear-gradient(135deg,#4fc3f7,#00d4aa); }
+    .g9 { background: linear-gradient(135deg,#b39ddb,#4fc3f7); }
+    .g10{ background: linear-gradient(135deg,#00d4aa,#4fc3f7); }
+    .g11{ background: linear-gradient(135deg,#e94560,#f5a623); }
+    .g12{ background: linear-gradient(135deg,#1a1a2e,#00d4aa); }
+
+    /* ========== POMODORO BOX ========== */
+    .pomodoro-box {
+      background: white;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 32px;
+      margin-bottom: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .pomo-side h3 { font-size: 18px; font-weight: 800; margin-bottom: 16px; color: var(--primary); }
+    .pomo-item {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 12px;
+      padding: 12px 16px;
+      background: var(--light);
+      border-radius: 12px;
+    }
+    .pomo-circle {
+      width: 44px; height: 44px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; font-weight: 900; color: white; flex-shrink: 0;
+    }
+    .pc-red    { background: #e94560; }
+    .pc-green  { background: #00d4aa; }
+    .pc-blue   { background: #4fc3f7; }
+    .pomo-text h4 { font-size: 14px; font-weight: 700; color: var(--primary); }
+    .pomo-text p  { font-size: 12px; color: var(--text-gray); }
+
+    /* ========== FREQUENCY TABLE ========== */
+    .freq-section { margin-bottom: 48px; }
+    .freq-section h3 { font-size: 20px; font-weight: 800; color: var(--primary); margin-bottom: 20px; }
+
+    table.freq-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    table.freq-table thead tr {
+      background: linear-gradient(135deg, #1a1a2e, #0f3460);
+      color: white;
+    }
+    table.freq-table thead th {
+      padding: 14px 18px;
+      text-align: right;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    table.freq-table tbody tr:nth-child(even) { background: #f7f9ff; }
+    table.freq-table tbody td {
+      padding: 13px 18px;
+      font-size: 13px;
+      color: var(--text-dark);
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .stars { color: #f5a623; font-size: 13px; letter-spacing: 1px; }
+
+    /* ========== CHEAT SHEET ========== */
+    .cheatsheet-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .cheat-card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .cheat-header {
+      padding: 14px 18px;
+      font-size: 14px;
+      font-weight: 800;
+      color: white;
+    }
+    .cheat-body {
+      padding: 16px 18px;
+    }
+    .cheat-body code {
+      display: block;
+      background: #1a1a2e;
+      color: #00d4aa;
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-size: 11px;
+      line-height: 1.8;
+      font-family: 'Courier New', monospace;
+      direction: ltr;
+      text-align: left;
+    }
+    .cheat-body table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+    .cheat-body table th {
+      background: #f0f4ff;
+      padding: 8px 10px;
+      text-align: right;
+      font-weight: 700;
+      color: var(--accent);
+      border-bottom: 2px solid var(--border);
+    }
+    .cheat-body table td {
+      padding: 7px 10px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-dark);
+    }
+    .cheat-body table tr:last-child td { border-bottom: none; }
+
+    /* ========== TIPS BOX ========== */
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .tip-card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+    .tip-icon { font-size: 32px; margin-bottom: 10px; }
+    .tip-title { font-size: 14px; font-weight: 800; color: var(--primary); margin-bottom: 6px; }
+    .tip-text  { font-size: 12px; color: var(--text-gray); line-height: 1.6; }
+
+    /* ========== INTERVIEW SECTION ========== */
+    .interview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .interview-card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .interview-card .ic-header {
+      padding: 16px 20px;
+      color: white;
+      font-size: 15px;
+      font-weight: 800;
+    }
+    .interview-card .ic-body { padding: 16px 20px; }
+    .q-item {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+      align-items: flex-start;
+    }
+    .q-num {
+      width: 22px; height: 22px;
+      border-radius: 6px;
+      background: var(--light);
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .q-text { font-size: 12px; color: var(--text-dark); line-height: 1.5; }
+
+    /* ========== PROGRESS TRACKER ========== */
+    .progress-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+    .progress-day {
+      background: white;
+      border-radius: 14px;
+      padding: 16px 12px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+    .progress-day .pd-num { font-size: 22px; font-weight: 900; color: var(--primary); }
+    .progress-day .pd-label { font-size: 10px; color: var(--text-gray); margin-top: 4px; }
+    .progress-day .pd-check {
+      margin-top: 8px;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      margin: 8px auto 0;
+      font-size: 12px;
+    }
+
+    /* ========== DIVIDER ========== */
+    .divider {
+      height: 2px;
+      background: linear-gradient(90deg, #e94560, #f5a623, #4fc3f7, #00d4aa);
+      border-radius: 2px;
+      margin: 40px 0;
+    }
+
+    /* ========== PAGE BREAK ========== */
+    @media print {
+      .page-break { page-break-before: always; }
+      body { background: white; }
+      .cover { min-height: 100vh; }
+    }
+
+    /* ========== MENTOR PROTOCOL ========== */
+    .mentor-box {
+      background: linear-gradient(135deg, #1a1a2e, #0f3460);
+      border-radius: 20px;
+      padding: 36px;
+      color: white;
+      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .mentor-box::before {
+      content: '🎯';
+      position: absolute;
+      font-size: 120px;
+      opacity: 0.05;
+      right: 20px; top: -10px;
+    }
+    .mentor-box h3 { font-size: 22px; font-weight: 800; margin-bottom: 16px; color: var(--gold2); }
+    .mentor-box p  { color: rgba(255,255,255,0.85); line-height: 1.8; font-size: 14px; }
+    .mentor-template {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 20px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.9);
+      line-height: 2;
+    }
+
+    /* ========== FINAL NOTE ========== */
+    .final-note {
+      text-align: center;
+      padding: 48px 32px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+    .final-note .fn-emoji { font-size: 64px; margin-bottom: 16px; }
+    .final-note h2 { font-size: 28px; font-weight: 900; color: var(--primary); margin-bottom: 12px; }
+    .final-note p  { font-size: 15px; color: var(--text-gray); line-height: 1.8; max-width: 600px; margin: 0 auto; }
+
+    /* print button */
+    .print-btn {
+      position: fixed;
+      bottom: 32px; left: 32px;
+      background: linear-gradient(135deg, #e94560, #f5a623);
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-size: 15px;
+      font-weight: 700;
+      font-family: 'Cairo', sans-serif;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(229,69,96,0.4);
+      z-index: 9999;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .print-btn:hover { transform: translateY(-2px); }
+    @media print { .print-btn { display: none; } }
+  </style>
+</head>
+<body>
+
+<!-- ===================== COVER ===================== -->
+<div class="cover">
+  <div class="cover-badge">🎓 خطة ITI الاحترافية</div>
+  <h1>12 يوم<br/><span>للنجاح في ITI</span></h1>
+  <h2>خطة مكثفة ومنظمة لاجتياز مرحلة القبول بأعلى نسبة نجاح</h2>
+
+  <div class="cover-stats">
+    <div class="stat-box">
+      <div class="num">12</div>
+      <div class="label">يوم تحضير</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">5</div>
+      <div class="label">مراحل القبول</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">3-5</div>
+      <div class="label">ساعات يومياً</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">80%</div>
+      <div class="label">نسبة النجاح المستهدفة</div>
+    </div>
+  </div>
+
+  <div class="cover-stages">
+    <div class="stage-pill">🇬🇧 الإنجليزي</div>
+    <div class="stage-pill">🧠 IQ</div>
+    <div class="stage-pill">💻 الامتحان التقني</div>
+    <div class="stage-pill">🗣️ المقابلة التقنية</div>
+    <div class="stage-pill">🤝 المقابلة الشخصية</div>
+  </div>
+</div>
+
+<!-- ===================== PAGE 1: النظرة العامة ===================== -->
+<div class="page">
+
+  <div class="section-header">
+    <div class="icon" style="background:linear-gradient(135deg,#e94560,#f5a623)">🗺️</div>
+    <div>
+      <h2>نظرة عامة على الخطة</h2>
+      <p>اشمعنى 12 يوم وبس؟ لأن 80% من النجاح بييجي من 20% من المذاكرة الصح</p>
+    </div>
+  </div>
+
+  <!-- Overview Cards -->
+  <div class="overview-grid">
+    <div class="overview-card c1">
+      <div class="oc-icon">🇬🇧</div>
+      <div class="oc-title">الإنجليزي</div>
+      <div class="oc-sub">مفردات + قواعد + فهم المقروء. مش محتاج أدب إنجليزي متقدم.</div>
+      <div class="oc-weight">وزن: 20%</div>
+    </div>
+    <div class="overview-card c2">
+      <div class="oc-icon">🧠</div>
+      <div class="oc-title">اختبار IQ</div>
+      <div class="oc-sub">أنماط + تسلسلات + منطق. أصعب جزء من ناحية الوقت.</div>
+      <div class="oc-weight">وزن: 25%</div>
+    </div>
+    <div class="overview-card c3">
+      <div class="oc-icon">💻</div>
+      <div class="oc-title">الامتحان التقني</div>
+      <div class="oc-sub">لينكس + شبكات + OS + OOP + قواعد بيانات.</div>
+      <div class="oc-weight">وزن: 30%</div>
+    </div>
+    <div class="overview-card c4">
+      <div class="oc-icon">🗣️</div>
+      <div class="oc-title">المقابلة التقنية</div>
+      <div class="oc-sub">تفكيرك في المشاكل أهم من الحل. اتكلم بصوت عالي.</div>
+      <div class="oc-weight">وزن: 15%</div>
+    </div>
+    <div class="overview-card c5">
+      <div class="oc-icon">🤝</div>
+      <div class="oc-title">المقابلة الشخصية</div>
+      <div class="oc-sub">الدافعية + الأهداف + شخصيتك. هنا بتفرق.</div>
+      <div class="oc-weight">وزن: 10%</div>
+    </div>
+  </div>
+
+  <!-- Pomodoro -->
+  <div class="section-header">
+    <div class="icon" style="background:linear-gradient(135deg,#e94560,#c62828)">🍅</div>
+    <div>
+      <h2>نظام بومودورو اليومي</h2>
+      <p>الطريقة العلمية لتجنب الحفظ الجامد والإرهاق الذهني</p>
+    </div>
+  </div>
+
+  <div class="pomodoro-box">
+    <div class="pomo-side">
+      <h3>🔄 دورة بومودورو الأساسية</h3>
+      <div class="pomo-item">
+        <div class="pomo-circle pc-red">25</div>
+        <div class="pomo-text">
+          <h4>دقيقة — تركيز كامل</h4>
+          <p>موبايل بعيد، تلفزيون قافل، مفيش مقاطعة</p>
+        </div>
+      </div>
+      <div class="pomo-item">
+        <div class="pomo-circle pc-green">5</div>
+        <div class="pomo-text">
+          <h4>دقائق — استراحة قصيرة</h4>
+          <p>قوم اتمشى، اشرب مية، بعد عنيك من الشاشة</p>
+        </div>
+      </div>
+      <div class="pomo-item">
+        <div class="pomo-circle pc-blue">20</div>
+        <div class="pomo-text">
+          <h4>دقيقة — استراحة كبيرة</h4>
+          <p>بعد كل 4 بومودورو (2 ساعة) استرح كويس</p>
+        </div>
+      </div>
+    </div>
+    <div class="pomo-side">
+      <h3>⏰ تقسيم اليوم العملي</h3>
+      <div class="pomo-item">
+        <div class="pomo-circle" style="background:linear-gradient(135deg,#f5a623,#e65100)">☀️</div>
+        <div class="pomo-text">
+          <h4>الصبح (8:00 – 11:00)</h4>
+          <p>موضوع جديد + IQ أو إنجليزي — دماغك أصحى</p>
+        </div>
+      </div>
+      <div class="pomo-item">
+        <div class="pomo-circle" style="background:linear-gradient(135deg,#4fc3f7,#0288d1)">🌤️</div>
+        <div class="pomo-text">
+          <h4>الضهر (11:30 – 14:00)</h4>
+          <p>موضوع تقني + تطبيق عملي — تنفيذ وكود</p>
+        </div>
+      </div>
+      <div class="pomo-item">
+        <div class="pomo-circle" style="background:linear-gradient(135deg,#b39ddb,#7b1fa2)">🌙</div>
+        <div class="pomo-text">
+          <h4>المسا (14:30 – 15:30)</h4>
+          <p>مراجعة + 20 سؤال يومي — ترسيخ وتقييم</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ====== 12-DAY SCHEDULE ====== -->
+  <div class="section-header">
+    <div class="icon" style="background:linear-gradient(135deg,#4fc3f7,#0288d1)">📅</div>
+    <div>
+      <h2>جدول الـ 12 يوم التفصيلي</h2>
+      <p>كل يوم ليه هدف واضح — متفضلش حائراً إيه تذاكر</p>
+    </div>
+  </div>
+
+  <!-- DAY 1 -->
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-num g1">1</div>
+      <div>
+        <div class="day-title">اليوم الأول — أساسيات وتشخيص</div>
+        <div class="day-quote">"عارف فين أنت الأول، وبعدين تشوف هتروح فين"</div>
+      </div>
+      <div class="day-badge">التأسيس</div>
+    </div>
+    <div class="day-body">
+      <div class="period">
+        <div class="period-label"><div class="dot" style="background:#f5a623"></div>☀️ الصبح (8:00 – 11:00)</div>
+        <div class="task-row">
+          <div class="task-time">8:00 – 9:30</div>
+          <div class="task-content"><h4>مفردات إنجليزي — 40 كلمة أساسية</h4><p>مرادفات + أضداد + استخدام في جملة + بادئات ولواحق (pre-, un-, -tion)</p></div>
+          <div class="task-tag tag-english">إنجليزي</div>
+        </div>
+        <div class="break-row"><div class="break-line"></div>☕ استراحة 5 دقايق<div class="break-line"></div></div>
+        <div class="task-row">
+          <div class="task-time">9:35 – 11:00</div>
+          <div class="task-content"><h4>IQ تشخيصي — تسلسلات أرقام وحروف</h4><p>أنماط حسابية (+n²، ×2، متبادل)، Fibonacci. الهدف: تاخد baseline لمستواك</p></div>
+          <div class="task-tag tag-iq">IQ</div>
+        </div>
+      </div>
+      <div class="period">
+        <div class="period-label"><div class="dot" style="background:#4fc3f7"></div>🌤️ الضهر (11:30 – 14:00)</div>
+        <div class="task-row">
+          <div class="task-time">11:30 – 13:00</div>
+          <div class="task-content"><h4>لينكس أساسيات (الأوامر الأساسية)</h4><p>ls, cd, pwd, cp, mv, rm, mkdir, cat, head, tail, grep — اكتب كل أمر في Terminal حقيقي</p></div>
+          <div class="task-tag tag-linux">لينكس</div>
+        </div>
+        <div class="break-row"><div class="break-line"></div>☕ استراحة 5 دقايق<div class="break-line"></div></div>
+        <div class="task-row">
+          <div class="task-time">13:05 – 14:00</div>
+          <div class="task-content"><h4>نظم التشغيل — Processes & Scheduling</h4><p>Process vs Thread، FCFS، SJF، Round Robin — ارسم جدول Gantt لمثال عملي</p></div>
+          <div class="task-tag tag-os">نظم تشغيل</div>
+        </div>
+      </div>
+      <div class="period">
+        <div class="period-label"><div class="dot" style="background:#b39ddb"></div>🌙 المسا (14:30 – 15:30)</div>
+        <div class="task-row">
+          <div class="task-time">14:30 – 15:00</div>
+          <div class="task-content"><h4>مراجعة + فلاش كاردز</h4><p>اكتب 5 نقاط مهمة من كل موضوع. ارسم Linux Filesystem من غير مراجعة.</p></div>
+          <div class="task-tag tag-revision">مراجعة</div>
+        </div>
+        <div class="task-row">
+          <div class="task-time">15:00 – 15:30</div>
+          <div class="task-content"><h4>كويز يومي — 20 سؤال مختلط</h4><p>10 إنجليزي + 5 IQ + 5 تقني. صحح نفسك وعلم على الضعيفة</p></div>
+          <div class="task-tag tag-mock">كويز</div>
+        </div>
+      </div>
+      <div class="day-checkpoint">
+        <div class="ck-icon">✅</div>
+        <div><h4>checkpoint اليوم الأول</h4><p>تعرف تسمي 20 أمر لينكس؟ تشرح Round Robin؟ تستخدم 20 كلمة إنجليزية في جمل؟</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 2 -->
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-num g2">2</div>
+      <div>
+        <div class="day-title">اليوم التاني — قواعد إنجليزي + OSI + OOP</div>
+        <div class="day-quote">"القواعد دي عضلة — كل ما تتمرن أكتر، أقوى"</div>
+      </div>
+      <div class="day-badge">البناء</div>
+    </div>
+    <div class="day-body">
+      <div class="period">
+        <div class="period-label"><div class="dot" style="background:#f5a623"></div>☀️ الصبح</div>
+        <div class="task-row">
+          <div class="task-time">8:00 – 9:30</div>
+          <div class="task-content"><h4>قواعد إنجليزي — الأزمنة الـ 12</h4><p>ركز على: Present Perfect, Past Simple, Future Perfect. تطابق الفاعل والفعل. Articles (a/an/the)</p></div>
+          <div class="task-tag tag-english">إنجليزي</div>
+        </div>
+        <div class="break-row"><div class="break-line"></div>☕ استراحة<div class="break-line"></div></div>
+        <div class="task-row">
+          <div class="task-time">9:35 – 11:00</div>
+          <div class="task-content"><h4>IQ — تشابه وتصنيف + Analogies</h4><p>A:B :: C:? (نوع العلاقة)، Odd-one-out (طلع الغريب)، تصنيف الأشكال</p></div>
+          <div class="task-tag tag-iq">IQ</div>
+        </div>
+      </div>
+      <div class="period">
+        <div class="period-label"><div class="dot" style="background:#4fc3f7"></div>🌤️ الضهر</div>
+        <div class="task-row">
+          <div class="task-time">11:30 – 13:00</div>
+          <div class="task-content"><h4>الشبكات — OSI Model (7 طبقات)</h4><p>كل طبقة ودورها + فرق TCP/IP vs OSI + عنونة IP + MAC. ارسم الـ Model من ذاكرتك</p></div>
+          <div class="task-tag tag-network">شبكات</div>
+        </div>
+        <div class="break-row"><div class="break-line"></div>☕ استراحة<div class="break-line"></div></div>
+        <div class="task-row">
+          <div class="task-time">13:05 – 14:00</div>
+          <div class="task-content"><h4>OOP — الـ 4 Pillars</h4><p>Encapsulation، Abstraction، Inheritance، Polymorphism. اكتب كلاس C++ يوضي الـ 4 بالترتيب</p></div>
+          <div class="task-tag tag-oop">OOP</div>
+        </div>
+      </div>
+      <div class="period">
+        <div class="period-label"><div class="dot" style="background:#b39ddb"></div>🌙 المسا</div>
+        <div class="task-row">
+          <div class="task-time">14:30 – 15:30</div>
+          <div class="task-content"><h4>مراجعة + كويز</h4><p>ارسم OSI model من ذاكرتك. اكتب مثال Polymorphism. صحح 10 جمل قواعد.</p></div>
+          <div class="task-tag tag-revision">مراجعة</div>
+        </div>
+      </div>
+      <div class="day-checkpoint">
+        <div class="ck-icon">✅</div>
+        <div><h4>checkpoint اليوم التاني</h4><p>تقدر ترسم OSI من غير بص؟ تكتب virtual function بـ C++؟ تعدل 10 جمل قواعد؟</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 3 -->
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-num g3">3</div>
+      <div>
+        <div class="day-title">اليوم التالت — Reading + رياضيات IQ + لينكس متقدم</div>
+        <div class="day-quote">"الـ Reading مش بقراءة كل كلمة — اتعلم تمسح وتلاقي"</div>
+      </div>
+      <div class="day-badge">التعمق</div>
+    </div>
+    <div class="day-body">
+      <div class="period">
+        <div class="period-label"><div class="dot" style="background:#f5a623"></div>☀️ الصبح</div>
+        <div class="task-row">
+          <div class="task-time">8:00 – 9:30</div>
+          <div class="task-content"><h4>Reading Comprehension — تقنية Skim & Scan</h4><p>اقرا الأسئلة الأول، وبعدين الباسج. حدد الجملة الرئيسية. أسئلة inference والـ tone.</p></div>
+          <div class="task-tag tag-english">إنجليزي</div>
+        </div>
+        <div class="break-row"><div class="break-line"></div>☕ استراحة<div class="break-line"></div></div>
+        <div class="task-row">
+          <div class="task-time">9:35 – 11:00</div>
+          <div class="task-content"><h4>IQ رياضيات — نسب ومتوسطات ومسائل</h4><p>نسب مئوية، نسب تناسب، متوسطات، سرعة-مسافة-زمن، ربح وخسارة. الهدف: تحل في أقل من 90 ثانية</p></div>
+          <div class="task-tag tag-iq">IQ رياضيات</div>
+        </div>
+      </div>
+      <div class="period">
+        <div class="period-label"><div class="dot" style="background:#4fc3f7"></div>🌤️ الضهر</div>
+        <div class="task-row">
+          <div class="task-time">11:30 – 13:00</div>
+          <div class="task-content"><h4>لينكس — صلاحيات + مستخدمين + Processes</h4><p>chmod, chown, chgrp, rwx, octal (755, 644...). adduser, passwd, usermod. ps, top, kill, jobs</p></div>
+          <div class="task-tag tag-linux">لينكس</div>
+        </div>
+        <div class="break-row"><div class="break-line"></div>☕ استراحة<div class="break-line"></div></div>
+        <div class="task-row">
+          <div class="task-time">13:05 – 14:00</div>
+          <div class="task-content"><h4>Data Structures — Array, Linked List, Stack, Queue</h4><p>العمليات + Time Complexity لكل واحد. نفّذ Stack و Queue بـ C++ من غير مساعدة</p></div>
+          <div class="task-tag tag-ds">Data Structures</div>
+        </div>
+      </div>
+      <div class="period">
+        <div class="period-label"><div class="dot" style="background:#b39ddb"></div>🌙 المسا</div>
+        <div class="task-row">
+          <div class="task-time">14:30 – 15:30</div>
+          <div class="task-content"><h4>مراجعة + كويز</h4><p>احسب معنى chmod 755 في ذهنك. نفّذ Stack. حل passage جديد في 15 دقيقة.</p></div>
+          <div class="task-tag tag-revision">مراجعة</div>
+        </div>
+      </div>
+      <div class="day-checkpoint">
+        <div class="ck-icon">✅</div>
+        <div><h4>checkpoint اليوم التالت</h4><p>تحسب chmod 755؟ تنفذ Stack بـ C++؟ تحل 10 مسائل % في 15 دقيقة؟</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 4 -->
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-num g4">4</div>
+      <div>
+        <div class="day-title">اليوم الرابع — مفردات + منطق IQ + شبكات + SQL</div>
+        <div class="day-quote">"الشبكات هي أساس كل حاجة هتشتغل عليها في DevOps"</div>
+      </div>
+      <div class="day-badge">التطبيق</div>
+    </div>
+    <div class="day-body">
+      <div class="period">
+        <div class="period-label"><div class="dot" style="background:#f5a623"></div>☀️ الصبح</div>
+        <div class="task-row">
+          <div class="task-time">8:00 – 9:30</div>
+          <div class="task-content"><h4>مفردات إنجليزي (الجزء الثاني) + Sentence Completion</h4><p>40 كلمة جديدة. تقنية الإقصاء (POE). Sentence completion: توقع الإجابة قبل ما تشوف الخيارات</p></div>
+          <div class="task-tag tag-english">إنجليزي</div>
+        </div>
+        <div class="break-row"><div class="break-line"></div>☕ استراحة<div class="break-line"></div></div>
+        <div class="task-row">
+          <div class="task-time">9:35 – 11:00</div>
+          <div class="task-content"><h4>IQ منطق — Syllogisms + علاقات دم + اتجاهات</h4><p>ارسم Venn Diagram دايماً للسيلوجيزم. علاقات دم: ارسم شجرة. اتجاهات: ابدأ دايماً من الشمال</p></div>
+          <div class="task-tag tag-iq">IQ منطق</div>
+        </div>
+      </div>
+      <div class="period">
+        <div class="period-label"><div class="dot" style="background:#4fc3f7"></div>🌤️ الضهر</div>
+        <div class="task-row">
+          <div class="task-time">11:30 – 13:00</div>
+          <div class="task-content"><h4>شبكات — TCP vs UDP + DNS + Ports</h4><p>TCP 3-way handshake. DNS resolution خطوة بخطوة. حفظ الـ ports: 22-SSH, 80-HTTP, 443-HTTPS, 21-FTP, 53-DNS, 3306-MySQL</p></div>
+          <div class="task-tag tag-network">شبكات</div>
+        </div>
+        <div class="break-row"><div class="break-line"></div>☕ استراحة<div class="break-line"></div></div>
+        <div class="task-row">
+          <div class="task-time">13:05 – 14:00</div>
+          <div class="task-content"><h4>قواعد بيانات — SQL أساسيات</h4><p>SELECT, INSERT, UPDATE, DELETE, WHERE. JOIN types (INNER, LEFT, RIGHT). Primary/Foreign Key. Normalization 1NF→3NF</p></div>
+          <div class="task-tag tag-db">قواعد بيانات</div>
+        </div>
+      </div>
+      <div class="period">
+        <div class="period-label"><div class="dot" style="background:#b39ddb"></div>🌙 المسا</div>
+        <div class="task-row">
+          <div class="task-time">14:30 – 15:30</div>
+          <div class="task-content"><h4>مراجعة + كويز</h4><p>ارسم TCP handshake. اكتب query بـ JOIN من غير مساعدة. حل 5 سيلوجيزم.</p></div>
+          <div class="task-tag tag-revision">مراجعة</div>
+        </div>
+      </div>
+      <div class="day-checkpoint">
+        <div class="ck-icon">✅</div>
+        <div><h4>checkpoint اليوم الرابع</h4><p>تكتب SQL query بـ INNER JOIN؟ تشرح DNS resolution؟ تحل 5 syllogisms؟</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 5 -->
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-num g5">5</div>
+      <div>
+        <div class="day-title">اليوم الخامس — قواعد متقدمة + Spatial IQ + OOP عميق + C++</div>
+        <div class="day-quote">"OOP هو لغة كل مقابلة تقنية — خليه طبيعي زي تنفسك"</div>
+      </div>
+      <div class="day-badge">التعمق</div>
+    </div>
+    <div class="day-body">
+      <div class="period">
+        <div class="period-label"><div class="dot" style="background:#f5a623"></div>☀️ الصبح</div>
+        <div class="task-row">
+          <div class="task-time">8:00 – 9:30</div>
+          <div class="task-content"><h4>قواعد إنجليزي II — Passive/Active + Conditionals</h4><p>تحويل Active↔Passive. Conditionals (0,1,2,3). Reported Speech. أفعال الجر (Prepositions).</p></div>
+          <div class="task-tag tag-english">إنجليزي</div>
+        </div>
+        <div class="break-row"><div class="break-line"></div>☕ استراحة<div class="break-line"></div></div>
+        <div class="task-row">
+          <div class="task-time">9:35 – 11:00</div>
+          <div class="task-content"><h4>IQ مكاني — Spatial Reasoning + Matrices</h4><p>تدوير الأشكال 2D/3D. صور مرآة. طي الورق. Matrix patterns (شبكة 3×3). دور خطوة بخطوة متدورش كل حاجة دفعة واحدة</p></div>
+          <div class="task-tag tag-iq">IQ مكاني</div>
+        </div>
+      </div>
+      <div class="period">
+        <div class="period-label"><div class="dot" style="background:#4fc3f7"></div>🌤️ الضهر</div>
+        <div class="task-row">
+          <div class="task-time">11:30 – 13:00</div>
+          <div class="task-content"><h4>OOP متعمق — Virtual, Abstract, Static, Friend</h4><p>Virtual functions. Pure virtual = Abstract class. Operator overloading. Copy constructor. Static members. Friend function. نفّذ hierarchy: Shape→Circle/Rectangle</p></div>
+          <div class="task-tag tag-oop">OOP</div>
+        </div>
+        <div class="break-row"><div class="break-line"></div>☕ استراحة<div class="break-line"></div></div>
+        <div class="task-row">
+          <div class="task-time">13:05 – 14:00</div>
+          <div class="task-content"><h4>C++ — Pointers + STL + Exception Handling</h4><p>Pointers & References. new/delete. vector, map, set, string. try/catch/throw. حل 5 مسائل LeetCode Easy بـ C++</p></div>
+          <div class="task-tag tag-oop">C++</div>
+        </div>
+      </div>
+      <div class="period">
+        <div class="period-label"><div class="dot" style="background:#b39ddb"></div>🌙 المسا</div>
+        <div class="task-row">
+          <div class="task-time">14:30 – 15:30</div>
+          <div class="task-content"><h4>مراجعة + كويز</h4><p>اكتب virtual function من ذاكرتك. حوّل 10 جمل passive↔active. حل spatial test.</p></div>
+          <div class="task-tag tag-revision">مراجعة</div>
+        </div>
+      </div>
+      <div class="day-checkpoint">
+        <div class="ck-icon">✅</div>
+        <div><h4>checkpoint اليوم الخامس</h4><p>تنفذ runtime polymorphism؟ تحوّل Active↔Passive؟ تعمل 70% في spatial test؟</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 6 — MOCK -->
+  <div class="day-card" style="border: 3px solid #e94560;">
+    <div class="day-header" style="background:linear-gradient(135deg,#1a1a2e,#e94560);">
+      <div class="day-num g6">6</div>
+      <div>
+        <div class="day-title" style="color:white">🔴 اليوم السادس — امتحان تجريبي كامل</div>
+        <div class="day-quote" style="color:rgba(255,255,255,0.7)">"الاختبار التجريبي هيكشف الحقيقة — واجهها وصلحها"</div>
+      </div>
+      <div class="day-badge" style="background:rgba(255,255,255,0.15);color:white">Mock Exam</div>
+    </div>
+    <div class="day-body">
+      <div class="period">
+        <div class="period-label"><div class="dot" style="background:#e94560"></div>🔴 امتحانات تجريبية</div>
+        <div class="task-row" style="background:#fff0f3">
+          <div class="task-time">8:00 – 8:40</div>
+          <div class="task-content"><h4>Mock 1: إنجليزي</h4><p>30 سؤال في 40 دقيقة — 10 مفردات + 10 قواعد + 10 reading. شيل الموبايل واعمله اختبار حقيقي</p></div>
+          <div class="task-tag tag-mock">Mock</div>
+        </div>
+        <div class="task-row" style="background:#fff8f0">
+          <div class="task-time">8:50 – 9:25</div>
+          <div class="task-content"><h4>Mock 2: IQ</h4><p>30 سؤال في 30 دقيقة — 10 تسلسلات + 10 منطق + 10 مكاني. سجّل الوقت على كل سؤال</p></div>
+          <div class="task-tag tag-mock">Mock</div>
+        </div>
+        <div class="task-row" style="background:#f0fff8">
+          <div class="task-time">9:50 – 11:00</div>
+          <div class="task-content"><h4>Mock 3: تقني</h4><p>40 سؤال في 50 دقيقة — 10 لينكس + 10 شبكات + 10 OOP/C++ + 10 OS/DS/DB</p></div>
+          <div class="task-tag tag-mock">Mock</div>
+        </div>
+        <div class="task-row" style="background:#f5f0ff">
+          <div class="task-time">11:30 – 13:00</div>
+          <div class="task-content"><h4>🩺 جراحة نقاط الضعف</h4><p>راجع كل إجابة غلط. فهم ليه غلط مش بس الصح. اقرأ الـ concept تاني. سجّل top 10 نقاط ضعف.</p></div>
+          <div class="task-tag tag-revision">تحليل</div>
+        </div>
+      </div>
+      <div class="day-checkpoint" style="background:linear-gradient(135deg,#e94560,#f5a623)">
+        <div class="ck-icon">📊</div>
+        <div><h4>checkpoint اليوم السادس</h4><p>سجّل نتايجك. اعمل قائمة بأضعف 10 موضوعات. عدّل الخطة من اليوم 7 بناءً على نتايجك.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 7 -->
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-num g7">7</div>
+      <div>
+        <div class="day-title">اليوم السابع — SysAdmin + DevOps + تحضير المقابلة</div>
+        <div class="day-quote">"DevOps هو ميزتك التنافسية — استخدمها"</div>
+      </div>
+      <div class="day-badge">System + Interview</div>
+    </div>
+    <div class="day-body">
+      <div class="period">
+        <div class="period-label"><div class="dot" style="background:#f5a623"></div>☀️ الصبح</div>
+        <div class="task-row">
+          <div class="task-time">8:00 – 9:30</div>
+          <div class="task-content"><h4>System Administration — Services + Cron + Logs</h4><p>systemctl start/stop/enable/disable. Cron syntax (*/5 * * * *). /var/log/. Package management: apt/yum. df, du, fdisk, mount</p></div>
+          <div class="task-tag tag-linux">SysAdmin</div>
+        </div>
+        <div class="break-row"><div class="break-line"></div>☕ استراحة<div class="break-line"></div></div>
+        <div class="task-row">
+          <div class="task-time">9:35 – 11:00</div>
+          <div class="task-content"><h4>DevOps أساسيات — Git + CI/CD + Docker</h4><p>Git: clone, add, commit, push, pull, branch, merge, rebase. CI/CD pipeline concept. Container vs VM. Dockerfile basics.</p></div>
+          <div class="task-tag tag-devops">DevOps</div>
+        </div>
+      </div>
+      <div class="period">
+        <div class="period-label"><div class="dot" style="background:#4fc3f7"></div>🌤️ الضهر</div>
+        <div class="task-row">
+          <div class="task-time">11:30 – 13:00</div>
+          <div class="task-content"><h4>تحضير المقابلة الشخصية — STAR Method</h4><p>STAR = Situation, Task, Action, Result. أسئلة شائعة: "عرفني بنفسك"، "ليه ITI؟"، "إيه نقاط قوتك وضعفك؟". اكتب وادرب إجاباتك</p></div>
+          <div class="task-tag tag-hr">HR</div>
+        </div>
+        <div class="break-row"><div class="break-line"></div>☕ استراحة<div class="break-line"></div></div>
+        <div class="task-row">
+          <div class="task-time">13:05 – 14:00</div>
+          <div class="task-content"><h4>تحضير المقابلة التقنية I — Problem Solving Approach</h4><p>فكّر بصوت عالي. وضّح أولاً، Brute Force أولاً، بعدين optimize. Two pointers, Hash maps. حل 3 مسائل Easy.</p></div>
+          <div class="task-tag tag-oop">Technical</div>
+        </div>
+      </div>
+      <div class="period">
+        <div class="period-label"><div class="dot" style="background:#b39ddb"></div>🌙 المسا</div>
+        <div class="task-row">
+          <div class="task-time">14:30 – 15:30</div>
+          <div class="task-content"><h4>مراجعة — Git workflow + Crontab + إجابة "عرفني بنفسك"</h4><p>سجّل نفسك وأنت بتجاوب. لازم تجاوب في أقل من 90 ثانية بشكل طبيعي.</p></div>
+          <div class="task-tag tag-revision">مراجعة</div>
+        </div>
+      </div>
+      <div class="day-checkpoint">
+        <div class="ck-icon">✅</div>
+        <div><h4>checkpoint اليوم السابع</h4><p>تشرح CI/CD ببساطة؟ تكتب crontab لـ backup يومي الساعة 2؟ تجاوب "عرفني بنفسك" في 90 ثانية؟</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 8 -->
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-num g8">8</div>
+      <div>
+        <div class="day-title">اليوم الثامن — استراتيجيات الامتحان + Networking متقدم + مقابلة تجريبية</div>
+        <div class="day-quote">"المحاكاة هتخلي الاختبار الحقيقي يحس إنه مألوف"</div>
+      </div>
+      <div class="day-badge">Simulation</div>
+    </div>
+    <div class="day-body">
+      <div class="period">
+        <div class="period-label"><div class="dot" style="background:#f5a623"></div>☀️ الصبح</div>
+        <div class="task-row">
+          <div class="task-time">8:00 – 9:30</div>
+          <div class="task-content"><h4>إنجليزي — استراتيجيات الاختبار</h4><p>POE: اقصي الغلط قبل ما تختار الصح. مفردات من نصوص تقنية. إدارة الوقت: 1.5 دقيقة للسؤال.</p></div>
+          <div class="task-tag tag-english">إنجليزي</div>
+        </div>
+        <div class="break-row"><div class="break-line"></div>☕ استراحة<div class="break-line"></div></div>
+        <div class="task-row">
+          <div class="task-time">9:35 – 11:00</div>
+          <div class="task-content"><h4>IQ مكثف — كل الأنواع مختلطة</h4><p>40 سؤال في 40 دقيقة. ركز على نقاط ضعفك من يوم 6. الهدف: 75%+ تحت ضغط الوقت.</p></div>
+          <div class="task-tag tag-iq">IQ مكثف</div>
+        </div>
+      </div>
+      <div class="period">
+        <div class="period-label"><div class="dot" style="background:#4fc3f7"></div>🌤️ الضهر</div>
+        <div class="task-row">
+          <div class="task-time">11:30 – 13:00</div>
+          <div class="task-content"><h4>شبكات III — Subnetting + Security + SSH</h4><p>CIDR notation. قسّم 192.168.1.0/24 لـ 4 subnets. SSH key-based auth. iptables concept. Network troubleshooting steps.</p></div>
+          <div class="task-tag tag-network">شبكات</div>
+        </div>
+        <div class="break-row"><div class="break-line"></div>☕ استراحة<div class="break-line"></div></div>
+        <div class="task-row">
+          <div class="task-time">13:05 – 14:30</div>
+          <div class="task-content"><h4>🎯 مقابلة تقنية تجريبية — 45 دقيقة</h4><p>أسئلة OOP + DS + لينكس + شبكات. جاوب بصوت عالي زي ما بتتكلم مع حد حقيقي. سجّل نفسك.</p></div>
+          <div class="task-tag tag-mock">Mock Interview</div>
+        </div>
+      </div>
+      <div class="period">
+        <div class="period-label"><div class="dot" style="background:#b39ddb"></div>🌙 المسا</div>
+        <div class="task-row">
+          <div class="task-time">14:30 – 15:30</div>
+          <div class="task-content"><h4>تحليل المقابلة التجريبية</h4><p>إيه اللي وقفت فيه؟ إيه اللي اتجاوبت فيه كويس؟ اكتب 3 نقاط تحسين محددة.</p></div>
+          <div class="task-tag tag-revision">تحليل</div>
+        </div>
+      </div>
+      <div class="day-checkpoint">
+        <div class="ck-icon">✅</div>
+        <div><h4>checkpoint اليوم الثامن</h4><p>تقسّم شبكة /26؟ تشرح virtual functions vs pure virtual؟ تعدي مقابلة تقنية تجريبية؟</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 9 -->
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-num g9">9</div>
+      <div>
+        <div class="day-title">اليوم التاسع — OS عميق + Problem Solving + معالجة نقاط الضعف</div>
+        <div class="day-quote">"نقاط ضعفك بعد النهاردة هتبقى قصة نجاح"</div>
+      </div>
+      <div class="day-badge">تعزيز</div>
+    </div>
+    <div class="day-body">
+      <div class="period">
+        <div class="period-label"><div class="dot" style="background:#f5a623"></div>☀️ الصبح</div>
+        <div class="task-row">
+          <div class="task-time">8:00 – 9:30</div>
+          <div class="task-content"><h4>OS — Deadlock + Virtual Memory + Paging</h4><p>Deadlock conditions: HMCN (Hold, Mutual exclusion, Circular wait, No preemption). Banker's Algorithm concept. Virtual memory. Paging vs Segmentation. Thrashing.</p></div>
+          <div class="task-tag tag-os">نظم تشغيل</div>
+        </div>
+        <div class="break-row"><div class="break-line"></div>☕ استراحة<div class="break-line"></div></div>
+        <div class="task-row">
+          <div class="task-time">9:35 – 11:00</div>
+          <div class="task-content"><h4>Problem Solving — Recursion + Binary Search + Sorting</h4><p>Recursion: base case + recursive case. Binary Search. Sorting: Bubble, Insertion, Merge, Quick — احفظ الـ complexity. نفّذ Merge Sort بـ C++.</p></div>
+          <div class="task-tag tag-ds">Algorithms</div>
+        </div>
+      </div>
+      <div class="period">
+        <div class="period-label"><div class="dot" style="background:#4fc3f7"></div>🌤️ الضهر</div>
+        <div class="task-row">
+          <div class="task-time">11:30 – 13:00</div>
+          <div class="task-content"><h4>🩺 مراجعة عميقة لأضعف 3 مواضيع</h4><p>من قائمة يوم 6. ركز 90 دقيقة عليهم بس. أسئلة تطبيقية مكثفة على نقاط ضعفك.</p></div>
+          <div class="task-tag tag-revision">علاج نقاط ضعف</div>
+        </div>
+        <div class="break-row"><div class="break-line"></div>☕ استراحة<div class="break-line"></div></div>
+        <div class="task-row">
+          <div class="task-time">13:05 – 14:00</div>
+          <div class="task-content"><h4>تحضير HR II — Behavioral Questions</h4><p>حل نزاع مع زميل؟ فشل وتعلمت منه؟ ليه Computer Engineering؟ ليه System Administration؟ سؤال تسأله أنت للمحاور.</p></div>
+          <div class="task-tag tag-hr">HR</div>
+        </div>
+      </div>
+      <div class="period">
+        <div class="period-label"><div class="dot" style="background:#b39ddb"></div>🌙 المسا</div>
+        <div class="task-row">
+          <div class="task-time">14:30 – 15:30</div>
+          <div class="task-content"><h4>مراجعة + كويز</h4><p>جدول Big-O من الذاكرة. رسم OS diagrams. إجابة STAR لسؤال "حكيلي عن فشل".</p></div>
+          <div class="task-tag tag-revision">مراجعة</div>
+        </div>
+      </div>
+      <div class="day-checkpoint">
+        <div class="ck-icon">✅</div>
+        <div><h4>checkpoint اليوم التاسع</h4><p>تشرح Banker's Algorithm؟ تنفذ Binary Search؟ تجاوب STAR لسؤال "حكيلي عن فشل"؟</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 10 -->
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-num g10">10</div>
+      <div>
+        <div class="day-title">اليوم العاشر — ربط المعرفة + مقابلة تقنية كاملة</div>
+        <div class="day-quote">"الدماغ المتربط بيكسب على الدماغ المجزأ دايماً"</div>
+      </div>
+      <div class="day-badge">تكامل</div>
+    </div>
+    <div class="day-body">
+      <div class="period">
+        <div class="period-label"><div class="dot" style="background:#f5a623"></div>☀️ الصبح</div>
+        <div class="task-row">
+          <div class="task-time">8:00 – 9:30</div>
+          <div class="task-content"><h4>إنجليزي — Sprint أخير (كل الـ 80+ كلمة)</h4><p>مراجعة سريعة لكل المفردات المتعلمة. Synonyms/Antonyms race. اختبار 40 سؤال في 20 دقيقة.</p></div>
+          <div class="task-tag tag-english">إنجليزي</div>
+        </div>
+        <div class="break-row"><div class="break-line"></div>☕ استراحة<div class="break-line"></div></div>
+        <div class="task-row">
+          <div class="task-time">9:35 – 11:00</div>
+          <div class="task-content"><h4>IQ — Sprint أخير + مراجعة الأخطاء</h4><p>30 سؤال في 25 دقيقة. أعد كل سؤال غلطته قبل كده. حدد آخر نوع ضعيف وادرب عليه مكثف.</p></div>
+          <div class="task-tag tag-iq">IQ</div>
+        </div>
+      </div>
+      <div class="period">
+        <div class="period-label"><div class="dot" style="background:#4fc3f7"></div>🌤️ الضهر</div>
+        <div class="task-row">
+          <div class="task-time">11:30 – 13:00</div>
+          <div class="task-content"><h4>مراجعة تكاملية — الصورة الكبيرة</h4><p>ازاي لينكس + شبكات + OS + DevOps بيتربطوا. ارسم architecture لـ Linux server خلف شبكة. شوف الـ stack كله كنظام واحد.</p></div>
+          <div class="task-tag tag-linux">تكامل</div>
+        </div>
+        <div class="break-row"><div class="break-line"></div>☕ استراحة<div class="break-line"></div></div>
+        <div class="task-row">
+          <div class="task-time">13:05 – 14:30</div>
+          <div class="task-content"><h4>🎯 مقابلة تقنية كاملة — 60 دقيقة</h4><p>كل المواضيع التقنية. جاوب بصوت عالي، Whiteboard style. سجّل نفسك واتفرج على التسجيل.</p></div>
+          <div class="task-tag tag-mock">Mock Interview</div>
+        </div>
+      </div>
+      <div class="day-checkpoint">
+        <div class="ck-icon">✅</div>
+        <div><h4>checkpoint اليوم العاشر</h4><p>تعدي مقابلة تقنية 60 دقيقة؟ ترسم system architecture؟ 80%+ في اختبار المفردات؟</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 11 -->
+  <div class="day-card" style="border: 3px solid #e94560;">
+    <div class="day-header" style="background:linear-gradient(135deg,#e94560,#f5a623);">
+      <div class="day-num g11">11</div>
+      <div>
+        <div class="day-title" style="color:white">🔴 اليوم الحادي عشر — امتحان تجريبي نهائي (Full Simulation)</div>
+        <div class="day-quote" style="color:rgba(255,255,255,0.8)">"البروفة دي أهم من أي مذاكرة — اتجدد كل حاجة"</div>
+      </div>
+      <div class="day-badge" style="background:rgba(255,255,255,0.2);color:white">Final Mock</div>
+    </div>
+    <div class="day-body">
+      <div class="period">
+        <div class="period-label"><div class="dot" style="background:#e94560"></div>🔴 الفاينال موك</div>
+        <div class="task-row" style="background:#fff0f3">
+          <div class="task-time">8:00 – 8:40</div>
+          <div class="task-content"><h4>إنجليزي نهائي — 40 سؤال / 40 دقيقة</h4><p>ظروف الاختبار الحقيقي. موبايل بعيد. كوباية مية جنبك. جرّب تخلص قبل الوقت بـ 5 دقايق.</p></div>
+          <div class="task-tag tag-mock">Final Mock</div>
+        </div>
+        <div class="task-row" style="background:#fff8f0">
+          <div class="task-time">8:50 – 9:25</div>
+          <div class="task-content"><h4>IQ نهائي — 40 سؤال / 35 دقيقة</h4><p>كل الأنواع مختلطة. متقفش كتير على سؤال واحد — شيله واجي عليه.</p></div>
+          <div class="task-tag tag-mock">Final Mock</div>
+        </div>
+        <div class="task-row" style="background:#f0fff8">
+          <div class="task-time">9:50 – 11:00</div>
+          <div class="task-content"><h4>تقني نهائي — 50 سؤال / 60 دقيقة</h4><p>كل المواضيع. 1.2 دقيقة للسؤال. لو مش عارف — اقصي الغلط وخمّن من المتبقي.</p></div>
+          <div class="task-tag tag-mock">Final Mock</div>
+        </div>
+        <div class="task-row" style="background:#f5f0ff">
+          <div class="task-time">11:30 – 13:00</div>
+          <div class="task-content"><h4>مقابلة HR + تقنية كاملة — 60 دقيقة</h4><p>HR أولاً (15 دقيقة) ثم تقني (45 دقيقة). سجّل التسجيل ده وبعدين اتفرج وحدد نقاط التحسين.</p></div>
+          <div class="task-tag tag-mock">Final Mock</div>
+        </div>
+        <div class="task-row">
+          <div class="task-time">13:30 – 14:30</div>
+          <div class="task-content"><h4>📊 تحليل نهائي + قائمة يوم 12</h4><p>سجّل النتايج. اعمل قائمة بأضعف 5 نقاط. دي هتبقى agenda يوم 12 بالظبط.</p></div>
+          <div class="task-tag tag-revision">تحليل</div>
+        </div>
+      </div>
+      <div class="day-checkpoint" style="background:linear-gradient(135deg,#e94560,#f5a623)">
+        <div class="ck-icon">📊</div>
+        <div><h4>checkpoint اليوم الحادي عشر</h4><p>النتايج اتسجلت؟ أضعف 5 نقاط اتحددت؟ قائمة يوم 12 جاهزة؟ نام بدري الليلة.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 12 -->
+  <div class="day-card" style="border: 3px solid #00d4aa;">
+    <div class="day-header" style="background:linear-gradient(135deg,#1a1a2e,#00d4aa);">
+      <div class="day-num g12">12</div>
+      <div>
+        <div class="day-title" style="color:white">🟢 اليوم الثاني عشر — مراجعة أخيرة + استعداد نفسي</div>
+        <div class="day-quote" style="color:rgba(255,255,255,0.8)">"وثق في نفسك — عملت الشغلانة. دلوقتي ثبّتها بس"</div>
+      </div>
+      <div class="day-badge" style="background:rgba(255,255,255,0.2);color:white">Game Day Ready</div>
+    </div>
+    <div class="day-body">
+      <div class="period">
+        <div class="period-label"><div class="dot" style="background:#00d4aa"></div>🟢 اليوم الأخير</div>
+        <div class="task-row">
+          <div class="task-time">8:00 – 8:45</div>
+          <div class="task-content"><h4>أضعف 3 نقاط فقط من قائمة يوم 11</h4><p>مش موضوع جديد خالص. بس ثبّت الضعاف. 15 دقيقة لكل موضوع بس.</p></div>
+          <div class="task-tag tag-revision">مراجعة مركزة</div>
+        </div>
+        <div class="task-row">
+          <div class="task-time">8:50 – 9:20</div>
+          <div class="task-content"><h4>مراجعة Cheat Sheets</h4><p>Linux commands, SQL queries, OSI layers, Ports, OOP pillars, Big-O table. اقرأهم زي بتقرأ قصة مش بتحفظ.</p></div>
+          <div class="task-tag tag-revision">Cheat Sheets</div>
+        </div>
+        <div class="task-row">
+          <div class="task-time">9:25 – 9:45</div>
+          <div class="task-content"><h4>إنجليزي — 20 مفردة أخيرة + 5 قواعد</h4><p>Flashcard sprint. الكلمات الأصعب بس مش كل حاجة.</p></div>
+          <div class="task-tag tag-english">إنجليزي</div>
+        </div>
+        <div class="task-row">
+          <div class="task-time">9:50 – 10:10</div>
+          <div class="task-content"><h4>IQ — 20 سؤال دافئ (Easy-Medium)</h4><p>مش للضغط — للتحفيز. الهدف تدفئة الدماغ مش إثباته.</p></div>
+          <div class="task-tag tag-iq">IQ Warm-up</div>
+        </div>
+        <div class="task-row">
+          <div class="task-time">10:15 – 11:00</div>
+          <div class="task-content"><h4>بروفة المقابلة الأخيرة</h4><p>"عرفني بنفسك" + 3 قصص STAR + "ليه ITI؟". بصوت عالي. بثقة. 90 ثانية لـ "عرفني بنفسك".</p></div>
+          <div class="task-tag tag-hr">Interview</div>
+        </div>
+        <div class="task-row" style="background:#e8faf6">
+          <div class="task-time">11:00 – ∞</div>
+          <div class="task-content"><h4>🛑 وقف المذاكرة — استعداد عملي</h4><p>جهّز أوراقك + ID + قلم + مية. اقرأ "notes النجاح" بتاعتك (المواضيع اللي بتعرفها كويس). نام الساعة 10 مساء.</p></div>
+          <div class="task-tag tag-break">راحة</div>
+        </div>
+      </div>
+      <div class="day-checkpoint" style="background:linear-gradient(135deg,#1a1a2e,#00d4aa)">
+        <div class="ck-icon">🚀</div>
+        <div><h4>مستعد 100%!</h4><p>عملت كل الشغلانة. وثق في نفسك. نام بدري. بكرة هيبقى يوم عظيم.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ===================== QUESTION BANKS ===================== -->
+  <div class="section-header">
+    <div class="icon" style="background:linear-gradient(135deg,#f5a623,#e65100)">❓</div>
+    <div>
+      <h2>بنك الأسئلة الأكثر تكراراً</h2>
+      <p>دي الـ 20% من الأسئلة اللي بتيجي في 80% من الامتحانات</p>
+    </div>
+  </div>
+
+  <!-- IQ Frequencies -->
+  <div class="freq-section">
+    <h3>🧠 IQ — أنواع الأسئلة الأكثر تكراراً</h3>
+    <table class="freq-table">
+      <thead><tr><th>النوع</th><th>التكرار</th><th>الطريقة السريعة</th></tr></thead>
+      <tbody>
+        <tr><td>تسلسلات أرقام</td><td><span class="stars">★★★★★</span></td><td>ابحث عن الفرق، لو مش واضح جرب الضرب أو القسمة</td></tr>
+        <tr><td>Matrices (شبكات أنماط)</td><td><span class="stars">★★★★★</span></td><td>حلّل صف صف، عمود عمود، قطري</td></tr>
+        <tr><td>Analogies (تشابه)</td><td><span class="stars">★★★★</span></td><td>حدد نوع العلاقة (جزء:كل، سبب:نتيجة)</td></tr>
+        <tr><td>Odd-One-Out (الشاذ)</td><td><span class="stars">★★★★</span></td><td>الشاذ مش بيشارك خاصيتين مع الباقي</td></tr>
+        <tr><td>Syllogisms (منطق)</td><td><span class="stars">★★★</span></td><td>ارسم Venn Diagram دايماً</td></tr>
+        <tr><td>علاقات دم</td><td><span class="stars">★★★</span></td><td>ارسم شجرة عيلة على ورقة</td></tr>
+        <tr><td>اتجاهات</td><td><span class="stars">★★★</span></td><td>ابدأ دايماً من الشمال</td></tr>
+        <tr><td>Spatial Rotation</td><td><span class="stars">★★★</span></td><td>دوّر خطوة خطوة، مش كل حاجة دفعة</td></tr>
+        <tr><td>رياضيات (نسب ومتوسطات)</td><td><span class="stars">★★★★</span></td><td>الوقت: 90 ثانية للسؤال — لو بطّلت، إقصاء واكمل</td></tr>
+        <tr><td>تسلسلات حروف</td><td><span class="stars">★★★★</span></td><td>حوّل الحروف لأرقام (A=1, Z=26)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- English Frequencies -->
+  <div class="freq-section">
+    <h3>🇬🇧 إنجليزي — أنواع الأسئلة الأكثر تكراراً</h3>
+    <table class="freq-table">
+      <thead><tr><th>النوع</th><th>التكرار</th><th>الاستراتيجية</th></tr></thead>
+      <tbody>
+        <tr><td>مفردات (مرادف/مضاد)</td><td><span class="stars">★★★★★</span></td><td>استخدم السياق + اقصي الغلط أولاً</td></tr>
+        <tr><td>إكمال الجملة</td><td><span class="stars">★★★★★</span></td><td>توقع الإجابة قبل ما تشوف الخيارات</td></tr>
+        <tr><td>فهم المقروء</td><td><span class="stars">★★★★</span></td><td>اقرأ الأسئلة أولاً ← ابحث عن الإجابة في الباسج</td></tr>
+        <tr><td>تصحيح الأزمنة</td><td><span class="stars">★★★★</span></td><td>حدد Time Marker في الجملة أولاً</td></tr>
+        <tr><td>Active/Passive</td><td><span class="stars">★★★</span></td><td>المفعول → فاعل + غيّر شكل الفعل</td></tr>
+        <tr><td>اكتشاف الخطأ</td><td><span class="stars">★★★</span></td><td>تحقق: S-V agreement، articles، prepositions</td></tr>
+        <tr><td>Cloze Test (ملء فراغات)</td><td><span class="stars">★★★</span></td><td>اقرأ الباسج كله الأول، بعدين ملّي</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Technical Interview Questions -->
+  <div class="section-header">
+    <div class="icon" style="background:linear-gradient(135deg,#00d4aa,#00897b)">💻</div>
+    <div>
+      <h2>أسئلة التقنية الأكثر تكراراً</h2>
+      <p>احفظ الإجابات دي — هييجوا بشكل أو بآخر</p>
+    </div>
+  </div>
+
+  <div class="interview-grid">
+    <div class="interview-card">
+      <div class="ic-header" style="background:linear-gradient(135deg,#2e7d32,#66bb6a)">🐧 لينكس</div>
+      <div class="ic-body">
+        <div class="q-item"><div class="q-num">1</div><div class="q-text">الفرق بين Hard Link وSoft Link؟</div></div>
+        <div class="q-item"><div class="q-num">2</div><div class="q-text">شرح Linux boot process (BIOS→GRUB→Kernel→Init)</div></div>
+        <div class="q-item"><div class="q-num">3</div><div class="q-text">معنى chmod 755 بالظبط؟</div></div>
+        <div class="q-item"><div class="q-num">4</div><div class="q-text">إيه الفرق بين &gt; و &gt;&gt; ؟</div></div>
+        <div class="q-item"><div class="q-num">5</div><div class="q-text">إزاي تلاقي فايل فيه string معين؟ (grep -r)</div></div>
+        <div class="q-item"><div class="q-num">6</div><div class="q-text">إيه هو daemon process؟</div></div>
+        <div class="q-item"><div class="q-num">7</div><div class="q-text">شرح stdin, stdout, stderr والـ file descriptors</div></div>
+        <div class="q-item"><div class="q-num">8</div><div class="q-text">إيه محتوى ملف /etc/passwd؟</div></div>
+        <div class="q-item"><div class="q-num">9</div><div class="q-text">إزاي تقتل process بالاسم؟</div></div>
+        <div class="q-item"><div class="q-num">10</div><div class="q-text">إزاي تشوف الـ services الشغالة؟</div></div>
+      </div>
+    </div>
+    <div class="interview-card">
+      <div class="ic-header" style="background:linear-gradient(135deg,#6a1b9a,#ab47bc)">🌐 شبكات</div>
+      <div class="ic-body">
+        <div class="q-item"><div class="q-num">1</div><div class="q-text">شرح TCP 3-way handshake (SYN→SYN-ACK→ACK)</div></div>
+        <div class="q-item"><div class="q-num">2</div><div class="q-text">الفرق بين TCP و UDP؟ امتى تستخدم كل واحد؟</div></div>
+        <div class="q-item"><div class="q-num">3</div><div class="q-text">إيه اللي بيحصل لما تكتب URL في المتصفح؟</div></div>
+        <div class="q-item"><div class="q-num">4</div><div class="q-text">الفرق بين Hub, Switch, Router؟</div></div>
+        <div class="q-item"><div class="q-num">5</div><div class="q-text">إيه هو NAT وليه بنستخدمه؟</div></div>
+        <div class="q-item"><div class="q-num">6</div><div class="q-text">شرح CIDR notation وازاي تعمل subnetting؟</div></div>
+        <div class="q-item"><div class="q-num">7</div><div class="q-text">Ports: HTTP, HTTPS, SSH, FTP, SMTP, DNS, MySQL</div></div>
+        <div class="q-item"><div class="q-num">8</div><div class="q-text">الفرق بين IPv4 و IPv6؟</div></div>
+        <div class="q-item"><div class="q-num">9</div><div class="q-text">إيه هو ARP؟</div></div>
+        <div class="q-item"><div class="q-num">10</div><div class="q-text">إيه هو VLAN ولماذا نستخدمه؟</div></div>
+      </div>
+    </div>
+    <div class="interview-card">
+      <div class="ic-header" style="background:linear-gradient(135deg,#880e4f,#e91e63)">⚙️ OS</div>
+      <div class="ic-body">
+        <div class="q-item"><div class="q-num">1</div><div class="q-text">الفرق بين Process و Thread؟</div></div>
+        <div class="q-item"><div class="q-num">2</div><div class="q-text">إيه هو Context Switching؟</div></div>
+        <div class="q-item"><div class="q-num">3</div><div class="q-text">شروط الـ Deadlock الأربعة (HMCN)؟</div></div>
+        <div class="q-item"><div class="q-num">4</div><div class="q-text">شرح Round Robin Scheduling بمثال</div></div>
+        <div class="q-item"><div class="q-num">5</div><div class="q-text">إيه هي Virtual Memory وازاي بتشتغل؟</div></div>
+        <div class="q-item"><div class="q-num">6</div><div class="q-text">الفرق بين Paging و Segmentation؟</div></div>
+        <div class="q-item"><div class="q-num">7</div><div class="q-text">الفرق بين Semaphore و Mutex؟</div></div>
+        <div class="q-item"><div class="q-num">8</div><div class="q-text">الفرق بين Kernel Mode و User Mode؟</div></div>
+        <div class="q-item"><div class="q-num">9</div><div class="q-text">إيه هو Thrashing؟</div></div>
+        <div class="q-item"><div class="q-num">10</div><div class="q-text">إيه هو System Call؟</div></div>
+      </div>
+    </div>
+    <div class="interview-card">
+      <div class="ic-header" style="background:linear-gradient(135deg,#006064,#26c6da)">🔷 OOP & C++</div>
+      <div class="ic-body">
+        <div class="q-item"><div class="q-num">1</div><div class="q-text">الفرق بين Overloading و Overriding؟</div></div>
+        <div class="q-item"><div class="q-num">2</div><div class="q-text">شرح Virtual Functions. امتى تستخدمها؟</div></div>
+        <div class="q-item"><div class="q-num">3</div><div class="q-text">إيه هي Pure Virtual Function والـ Abstract Class؟</div></div>
+        <div class="q-item"><div class="q-num">4</div><div class="q-text">الفرق بين struct و class في C++؟</div></div>
+        <div class="q-item"><div class="q-num">5</div><div class="q-text">إيه هو Copy Constructor وامتى بنحتاجه؟</div></div>
+        <div class="q-item"><div class="q-num">6</div><div class="q-text">الفرق بين Shallow Copy و Deep Copy؟</div></div>
+        <div class="q-item"><div class="q-num">7</div><div class="q-text">إيه هي Static Members؟</div></div>
+        <div class="q-item"><div class="q-num">8</div><div class="q-text">إيه هي Friend Function؟</div></div>
+        <div class="q-item"><div class="q-num">9</div><div class="q-text">إيه هو Operator Overloading؟ اعمل مثال.</div></div>
+        <div class="q-item"><div class="q-num">10</div><div class="q-text">الفرق بين Early Binding و Late Binding؟</div></div>
+      </div>
+    </div>
+    <div class="interview-card">
+      <div class="ic-header" style="background:linear-gradient(135deg,#004d40,#26a69a)">📊 DS & Algorithms</div>
+      <div class="ic-body">
+        <div class="q-item"><div class="q-num">1</div><div class="q-text">Time complexity للـ Search في: Array, Linked List, BST, Hash Table</div></div>
+        <div class="q-item"><div class="q-num">2</div><div class="q-text">الفرق بين Stack و Queue؟ أمثلة من الحياة؟</div></div>
+        <div class="q-item"><div class="q-num">3</div><div class="q-text">إيه هو BST وإيه خصايصه؟</div></div>
+        <div class="q-item"><div class="q-num">4</div><div class="q-text">الفرق بين BFS و DFS؟ امتى تستخدم كل واحد؟</div></div>
+        <div class="q-item"><div class="q-num">5</div><div class="q-text">أحسن Sorting Algorithm للـ nearly sorted data؟</div></div>
+        <div class="q-item"><div class="q-num">6</div><div class="q-text">إيه هو O(1), O(log n), O(n), O(n log n), O(n²)؟</div></div>
+        <div class="q-item"><div class="q-num">7</div><div class="q-text">إزاي Hash Table بتتعامل مع Collisions؟</div></div>
+        <div class="q-item"><div class="q-num">8</div><div class="q-text">إيه هو Dynamic Programming؟</div></div>
+        <div class="q-item"><div class="q-num">9</div><div class="q-text">الفرق بين Heap و Stack (Memory)؟</div></div>
+        <div class="q-item"><div class="q-num">10</div><div class="q-text">إيه هو Circular Linked List؟</div></div>
+      </div>
+    </div>
+    <div class="interview-card">
+      <div class="ic-header" style="background:linear-gradient(135deg,#f57f17,#ffca28)">🗄️ DB & DevOps</div>
+      <div class="ic-body">
+        <div class="q-item"><div class="q-num">1</div><div class="q-text">الفرق بين SQL و NoSQL؟ امتى تستخدم كل واحد؟</div></div>
+        <div class="q-item"><div class="q-num">2</div><div class="q-text">شرح ACID Properties</div></div>
+        <div class="q-item"><div class="q-num">3</div><div class="q-text">شرح Normalization: 1NF, 2NF, 3NF بأمثلة</div></div>
+        <div class="q-item"><div class="q-num">4</div><div class="q-text">الفرق بين INNER, LEFT, RIGHT, FULL JOIN؟</div></div>
+        <div class="q-item"><div class="q-num">5</div><div class="q-text">الفرق بين DELETE, TRUNCATE, DROP؟</div></div>
+        <div class="q-item"><div class="q-num">6</div><div class="q-text">الفرق بين Container و Virtual Machine؟</div></div>
+        <div class="q-item"><div class="q-num">7</div><div class="q-text">إيه هو Docker وإيه بيعمله؟</div></div>
+        <div class="q-item"><div class="q-num">8</div><div class="q-text">إيه هو CI/CD؟</div></div>
+        <div class="q-item"><div class="q-num">9</div><div class="q-text">الفرق بين git merge و git rebase؟</div></div>
+        <div class="q-item"><div class="q-num">10</div><div class="q-text">إيه هو Infrastructure as Code (IaC)؟</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ===================== CHEAT SHEETS ===================== -->
+  <div class="section-header">
+    <div class="icon" style="background:linear-gradient(135deg,#1a1a2e,#4fc3f7)">📋</div>
+    <div>
+      <h2>Cheat Sheets — اطبع دول وحطّهم قدامك</h2>
+      <p>الأوامر والمفاهيم الأكثر احتمالاً في الامتحان</p>
+    </div>
+  </div>
+
+  <div class="cheatsheet-grid">
+    <div class="cheat-card">
+      <div class="cheat-header" style="background:linear-gradient(135deg,#2e7d32,#66bb6a)">🐧 Linux Commands الأهم</div>
+      <div class="cheat-body">
+        <code># تصفح الملفات
+ls -la          # كل الملفات بالتفاصيل
+find / -name f  # ابحث عن ملف
+grep -r "txt" / # ابحث عن نص
+
+# صلاحيات
+chmod 755 file  # rwxr-xr-x
+chown user:grp file
+chmod +x file   # اضف execute
+
+# Processes
+ps aux          # كل الـ processes
+kill -9 PID     # قتل قسري
+top / htop      # مراقبة مباشرة
+
+# Services
+systemctl start svc
+systemctl enable svc
+systemctl status svc
+
+# شبكات
+ip a / ifconfig
+netstat -tulnp  # الـ ports المفتوحة
+ss -tulnp       # بديل أسرع</code>
+      </div>
+    </div>
+    <div class="cheat-card">
+      <div class="cheat-header" style="background:linear-gradient(135deg,#1565c0,#42a5f5)">🗄️ SQL الأهم</div>
+      <div class="cheat-body">
+        <code>-- قراءة
+SELECT col FROM tbl WHERE cond;
+SELECT * FROM t ORDER BY col DESC;
+SELECT COUNT(*), AVG(col) FROM t;
+
+-- تعديل
+INSERT INTO t (col) VALUES (val);
+UPDATE t SET col=val WHERE cond;
+DELETE FROM t WHERE cond;
+
+-- JOIN
+SELECT * FROM A
+INNER JOIN B ON A.id = B.id;
+LEFT JOIN B ON A.id = B.id;
+
+-- تجميع
+SELECT col, COUNT(*) FROM t
+GROUP BY col
+HAVING COUNT(*) > 5;
+
+-- Subquery
+SELECT * FROM t
+WHERE id IN (SELECT id FROM t2);</code>
+      </div>
+    </div>
+    <div class="cheat-card">
+      <div class="cheat-header" style="background:linear-gradient(135deg,#880e4f,#e91e63)">⚡ Big-O Cheat Sheet</div>
+      <div class="cheat-body">
+        <table>
+          <thead><tr><th>Structure</th><th>Access</th><th>Search</th><th>Insert</th></tr></thead>
+          <tbody>
+            <tr><td>Array</td><td>O(1)</td><td>O(n)</td><td>O(n)</td></tr>
+            <tr><td>Linked List</td><td>O(n)</td><td>O(n)</td><td>O(1)</td></tr>
+            <tr><td>BST (avg)</td><td>O(log n)</td><td>O(log n)</td><td>O(log n)</td></tr>
+            <tr><td>Hash Table</td><td>O(1)</td><td>O(1)</td><td>O(1)</td></tr>
+          </tbody>
+        </table>
+        <table style="margin-top:12px">
+          <thead><tr><th>Sorting</th><th>Average</th><th>Worst</th></tr></thead>
+          <tbody>
+            <tr><td>Bubble</td><td>O(n²)</td><td>O(n²)</td></tr>
+            <tr><td>Insertion</td><td>O(n²)</td><td>O(n²)</td></tr>
+            <tr><td>Merge</td><td>O(n log n)</td><td>O(n log n)</td></tr>
+            <tr><td>Quick</td><td>O(n log n)</td><td>O(n²)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="cheat-card">
+      <div class="cheat-header" style="background:linear-gradient(135deg,#6a1b9a,#ab47bc)">🌐 OSI + Ports الأهم</div>
+      <div class="cheat-body">
+        <table>
+          <thead><tr><th>Layer</th><th>Name</th><th>Protocol</th></tr></thead>
+          <tbody>
+            <tr><td>7</td><td>Application</td><td>HTTP, DNS, SMTP</td></tr>
+            <tr><td>6</td><td>Presentation</td><td>SSL/TLS</td></tr>
+            <tr><td>5</td><td>Session</td><td>NetBIOS</td></tr>
+            <tr><td>4</td><td>Transport</td><td>TCP, UDP</td></tr>
+            <tr><td>3</td><td>Network</td><td>IP, ICMP</td></tr>
+            <tr><td>2</td><td>Data Link</td><td>Ethernet, ARP</td></tr>
+            <tr><td>1</td><td>Physical</td><td>Cables, Hubs</td></tr>
+          </tbody>
+        </table>
+        <table style="margin-top:12px">
+          <thead><tr><th>Port</th><th>Service</th></tr></thead>
+          <tbody>
+            <tr><td>22</td><td>SSH</td></tr>
+            <tr><td>80</td><td>HTTP</td></tr>
+            <tr><td>443</td><td>HTTPS</td></tr>
+            <tr><td>21</td><td>FTP</td></tr>
+            <tr><td>53</td><td>DNS</td></tr>
+            <tr><td>25</td><td>SMTP</td></tr>
+            <tr><td>3306</td><td>MySQL</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ===================== HR SECTION ===================== -->
+  <div class="section-header">
+    <div class="icon" style="background:linear-gradient(135deg,#bf360c,#ff7043)">🤝</div>
+    <div>
+      <h2>تحضير المقابلة الشخصية — نموذج STAR</h2>
+      <p>Situation → Task → Action → Result</p>
+    </div>
+  </div>
+
+  <div class="freq-section">
+    <table class="freq-table">
+      <thead><tr><th>السؤال</th><th>الاستراتيجية</th><th>النقاط الأساسية</th></tr></thead>
+      <tbody>
+        <tr><td>"عرفني بنفسك"</td><td>Pitch من 90 ثانية</td><td>خلفية → مهارات → ليه ITI (بالترتيب)</td></tr>
+        <tr><td>"ليه عايز تنضم لـ ITI؟"</td><td>بحث + اهتمام حقيقي</td><td>التدريب العملي + صلات صناعية + شهادة + نمو مهني</td></tr>
+        <tr><td>"إيه نقاط قوتك؟"</td><td>2-3 نقاط + أمثلة</td><td>مزيج: technical skill + soft skill</td></tr>
+        <tr><td>"إيه نقاط ضعفك؟"</td><td>صريح + نمو</td><td>اذكر ضعف حقيقي + إيه اللي بتعمله عشان تتحسن</td></tr>
+        <tr><td>"فين بتشوف نفسك بعد 5 سنين؟"</td><td>متسق مع ITI</td><td>DevOps Engineer ← Senior ← Lead/Architect</td></tr>
+        <tr><td>"حكيلي عن تحدي واجهته"</td><td>STAR Method</td><td>مشكلة تقنية حليتها + الدرس اللي اتعلمته</td></tr>
+        <tr><td>"إزاي بتتعامل مع الضغط؟"</td><td>مثال محدد</td><td>ترتيب أولويات + تركيز + تواصل</td></tr>
+        <tr><td>"إيه أكبر إنجاز حقق؟"</td><td>STAR Method</td><td>مشروع تقني أو إنجاز أكاديمي</td></tr>
+        <tr><td>"ليه Computer Engineering؟"</td><td>شغف حقيقي</td><td>حب حل المشاكل + تأثير التكنولوجيا</td></tr>
+        <tr><td>"عندك أسئلة؟"</td><td>دايماً YES!</td><td>اسأل عن: شكل التدريب، المرشدين، مسار الكاريير</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ===================== TIPS ===================== -->
+  <div class="section-header">
+    <div class="icon" style="background:linear-gradient(135deg,#f5a623,#e65100)">💡</div>
+    <div>
+      <h2>نصايح الـ Mentor — لازم تعرفها</h2>
+      <p>الفرق بين اللي بيعدي واللي مش بيعدي</p>
+    </div>
+  </div>
+
+  <div class="tips-grid">
+    <div class="tip-card">
+      <div class="tip-icon">🧠</div>
+      <div class="tip-title">متحفظش — افهم</div>
+      <div class="tip-text">الاختبار التقني بيقيس الفهم مش الحفظ. لو فهمت ليه، هتجاوب على أي صياغة.</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">⏱️</div>
+      <div class="tip-title">ادارة الوقت ملك</div>
+      <div class="tip-text">لو سؤال بياخد أكتر من دقيقتين — علّم عليه وامشي. رجع في الآخر.</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🗣️</div>
+      <div class="tip-title">اتكلم بصوت عالي</div>
+      <div class="tip-text">في المقابلة التقنية، تفكيرك الصوتي أهم من الإجابة الصح. المحاور عايز يشوف عقلك.</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">📝</div>
+      <div class="tip-title">اكتب بدل ما تحفظ</div>
+      <div class="tip-text">الكتابة بتثبت المعلومة ×3 أكتر من القراءة. خليلك دفتر وارسم وافهم.</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">😴</div>
+      <div class="tip-title">النوم مش كسل</div>
+      <div class="tip-text">7-8 ساعات نوم بيحسّن الذاكرة بـ 40%. السهر قبل الامتحان عدو مش صاحب.</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">💪</div>
+      <div class="tip-title">الثقة هتفرق</div>
+      <div class="tip-text">المحاور الشخصي بيقيّم طاقتك. ادخل بثقة، تكلم بوضوح، مش لازم تعرف كل حاجة.</div>
+    </div>
+  </div>
+
+  <!-- ===================== MENTOR BOX ===================== -->
+  <div class="mentor-box">
+    <h3>🎯 بروتوكول الـ Mentor اليومي</h3>
+    <p>في آخر كل يوم، ابعتلي الرسالة دي وأنا هكمّل معاك:</p>
+    <div class="mentor-template">
+      📅 اليوم [رقم] اتخلص<br/><br/>
+      ✅ اللي اتعملته:<br/>
+      ⚠️ اللي واجهتني فيه:<br/>
+      ❓ أسئلة ملقتش ليها إجابة:<br/>
+      💪 مستوى ثقتي (1-10):<br/><br/>
+      ← أنا هكويزك بـ 20 سؤال على اللي اتعمل، هصحح معاك، وهولّدلك مهام يوم كمان.
+    </div>
+  </div>
+
+  <!-- ===================== PROGRESS TRACKER ===================== -->
+  <div class="section-header">
+    <div class="icon" style="background:linear-gradient(135deg,#00d4aa,#00897b)">📈</div>
+    <div>
+      <h2>Progress Tracker — تعقب تقدمك</h2>
+      <p>خلّي كل يوم بتخلصه تحس بالإنجاز</p>
+    </div>
+  </div>
+
+  <div class="progress-grid">
+    <div class="progress-day"><div class="pd-num">1</div><div class="pd-label">تأسيس</div><div class="pd-check">□</div></div>
+    <div class="progress-day"><div class="pd-num">2</div><div class="pd-label">بناء</div><div class="pd-check">□</div></div>
+    <div class="progress-day"><div class="pd-num">3</div><div class="pd-label">تعمق</div><div class="pd-check">□</div></div>
+    <div class="progress-day"><div class="pd-num">4</div><div class="pd-label">تطبيق</div><div class="pd-check">□</div></div>
+    <div class="progress-day"><div class="pd-num">5</div><div class="pd-label">تعمق</div><div class="pd-check">□</div></div>
+    <div class="progress-day" style="border:2px solid #e94560"><div class="pd-num" style="color:#e94560">6</div><div class="pd-label">Mock 🔴</div><div class="pd-check">□</div></div>
+    <div class="progress-day"><div class="pd-num">7</div><div class="pd-label">SysAdmin</div><div class="pd-check">□</div></div>
+    <div class="progress-day"><div class="pd-num">8</div><div class="pd-label">محاكاة</div><div class="pd-check">□</div></div>
+    <div class="progress-day"><div class="pd-num">9</div><div class="pd-label">تعزيز</div><div class="pd-check">□</div></div>
+    <div class="progress-day"><div class="pd-num">10</div><div class="pd-label">تكامل</div><div class="pd-check">□</div></div>
+    <div class="progress-day" style="border:2px solid #e94560"><div class="pd-num" style="color:#e94560">11</div><div class="pd-label">Final 🔴</div><div class="pd-check">□</div></div>
+    <div class="progress-day" style="border:2px solid #00d4aa"><div class="pd-num" style="color:#00d4aa">12</div><div class="pd-label">Ready 🟢</div><div class="pd-check">□</div></div>
+  </div>
+
+  <!-- ===================== FINAL NOTE ===================== -->
+  <div class="final-note">
+    <div class="fn-emoji">🚀</div>
+    <h2>أنت قادر تعمل ده</h2>
+    <p>
+      الفرق بين اللي بيعدي واللي مش بيعدي مش في الذكاء —
+      في الالتزام والنظام. عندك الخطة، عندك الأدوات، وعندك الـ 12 يوم.
+      <br/><br/>
+      <strong>ابدأ النهارده. اليوم الأول هو الأصعب — بعده بيبقى أسهل.</strong>
+      <br/><br/>
+      وفي آخر كل يوم، ابعتلي تقريرك وأنا معاك خطوة بخطوة. 💪
+    </p>
+  </div>
+
+</div>
+
+<!-- Print Button -->
+<button class="print-btn" onclick="window.print()">🖨️ اطبع كـ PDF</button>
+
+</body>
+</html>

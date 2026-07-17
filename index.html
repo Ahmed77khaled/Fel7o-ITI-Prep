@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="auto">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
+  <meta name="description" content="منصة ITI الاحترافية — خطة 12 يوم لاجتياز مرحلة القبول بأعلى نسبة نجاح" />
+  <meta name="theme-color" content="#e94560" />
+
+  <!-- PWA / Android -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="application-name" content="Fel7o ITI Prep" />
+
+  <!-- Apple PWA -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Fel7o ITI Prep" />
+
+  <title>Fel7o ITI Prep — خطة 11 يوم للنجاح</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- PDF.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+  <!-- App CSS -->
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
+
+  <!-- Critical inline CSS for initial paint -->
+  <style>
+    .view { display: block; }
+    .view.hidden { display: none !important; }
+    .loading-screen {
+      position: fixed; inset: 0;
+      background: #0d0f1a;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease;
+    }
+    .loading-screen.fade-out { opacity: 0; pointer-events: none; }
+    .loader-content { text-align: center; }
+    .loader-logo { font-size: 48px; margin-bottom: 16px; animation: pulse 1s ease infinite alternate; }
+    @keyframes pulse { from { transform: scale(1); } to { transform: scale(1.1); } }
+    .loader-text { font-family: 'Cairo', sans-serif; color: white; font-size: 16px; font-weight: 700; margin-bottom: 24px; }
+    .loader-bar-wrap { width: 200px; height: 3px; background: rgba(255,255,255,0.1); border-radius: 99px; overflow: hidden; margin: 0 auto; }
+    .loader-bar { height: 100%; background: linear-gradient(90deg, #e94560, #f5a623); border-radius: 99px; animation: loading 1.2s ease-out forwards; }
+    @keyframes loading { from { width: 0; } to { width: 100%; } }
+  </style>
+</head>
+<body>
+
+<!-- ===================== LOADING SCREEN ===================== -->
+<div class="loading-screen" id="loading-screen">
+  <div class="loader-content">
+    <div class="loader-logo">🎯</div>
+    <div class="loader-text">Fel7o ITI Prep</div>
+    <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  </div>
+</div>
+
+<!-- ===================== APP SHELL ===================== -->
+<div class="app-wrapper">
+
+  <!-- ── SIDEBAR ── -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-mark">🎯</div>
+      <div>
+        <div class="logo-text">Fel7o ITI Prep</div>
+        <div class="logo-sub">11 يوم للنجاح</div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <!-- Main Navigation -->
+      <div class="nav-section">
+        <div class="nav-section-label">القائمة الرئيسية</div>
+        <div class="nav-item active" data-view="dashboard" onclick="Router.navigate('dashboard');UI.closeSidebar()">
+          <span class="nav-icon">🏠</span> لوحة التحكم
+        </div>
+        <div class="nav-item" data-view="study-plan" onclick="Router.navigate('study-plan');UI.closeSidebar()">
+          <span class="nav-icon">📅</span> خطة الدراسة
+        </div>
+        <div class="nav-item" data-view="progress" onclick="Router.navigate('progress');UI.closeSidebar()">
+          <span class="nav-icon">📈</span> التقدم
+        </div>
+      </div>
+
+      <!-- Resources -->
+      <div class="nav-section">
+        <div class="nav-section-label">المحتوى</div>
+        <div class="nav-item" data-view="question-banks" onclick="Router.navigate('question-banks');UI.closeSidebar()">
+          <span class="nav-icon">❓</span> بنك الأسئلة
+        </div>
+        <div class="nav-item" data-view="cheat-sheets" onclick="Router.navigate('cheat-sheets');UI.closeSidebar()">
+          <span class="nav-icon">📋</span> Cheat Sheets
+        </div>
+        <div class="nav-item" data-view="hr-prep" onclick="Router.navigate('hr-prep');UI.closeSidebar()">
+          <span class="nav-icon">🤝</span> المقابلة الشخصية
+        </div>
+      </div>
+
+      <!-- Days Quick Nav -->
+      <div class="nav-section">
+        <div class="nav-section-label">الأيام</div>
+        <div id="sidebar-days-nav">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </nav>
+
+    <div class="sidebar-footer">
+      <!-- Theme Toggle -->
+      <div style="display:flex;gap:4px;background:var(--bg-tertiary);border-radius:var(--radius-full);padding:4px">
+        <button class="theme-tab" data-theme-btn="light" onclick="Theme.apply('light')" style="flex:1;padding:6px;font-size:11px;border-radius:var(--radius-full)">☀️</button>
+        <button class="theme-tab active" data-theme-btn="auto" onclick="Theme.apply('auto')" style="flex:1;padding:6px;font-size:11px;border-radius:var(--radius-full)">🌓</button>
+        <button class="theme-tab" data-theme-btn="dark" onclick="Theme.apply('dark')" style="flex:1;padding:6px;font-size:11px;border-radius:var(--radius-full)">🌙</button>
+      </div>
+      <div style="font-size:10px;color:var(--text-muted);text-align:center;padding:4px 0">
+        Fel7o ITI Prep v2.0
+      </div>
+    </div>
+  </aside>
+
+  <!-- Sidebar Overlay -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- ── MAIN CONTENT ── -->
+  <main class="main-content">
+
+    <!-- Top Header -->
+    <header class="top-header">
+      <button class="header-burger" id="burger-btn" onclick="UI.openSidebar()">☰</button>
+
+      <div class="header-search">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="quick-search-input" placeholder="ابحث في الخطة... (Ctrl+K)" readonly />
+      </div>
+
+      <div class="header-actions">
+        <div class="progress-pill">
+          <div class="pill-bar"><div class="pill-fill" style="width:0%"></div></div>
+          <span class="pill-pct">0%</span>
+        </div>
+        <button class="icon-btn" id="lang-toggle-btn" onclick="Lang.toggle()" title="تغيير اللغة / Change Language" style="font-weight:700;font-size:12px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:var(--bg-tertiary);color:var(--text-primary);border:1px solid var(--border-subtle)">EN</button>
+        <button class="icon-btn" onclick="window.print()" title="طباعة">🖨️</button>
+      </div>
+    </header>
+
+    <!-- Scrollable Content -->
+    <div id="main-scroll" style="flex:1;overflow-y:auto">
+      <div class="page-content">
+
+        <!-- ==================== DASHBOARD ==================== -->
+        <div id="view-dashboard" class="view">
+          <!-- Hero -->
+          <div class="dashboard-hero" id="dash-hero">
+            <div class="hero-content">
+              <div class="hero-greeting">مرحباً — ابدأ يومك بنشاط 💪</div>
+              <h1 class="hero-title">خطة ITI — <span>12 يوم للنجاح</span></h1>
+              <p class="hero-quote" id="dash-quote-text">"خطة منظمة + تنفيذ يومي = نجاح مضمون"</p>
+              <div class="hero-stats">
+                <div class="hero-stat">
+                  <div class="hs-num red" id="dash-overall-pct">0%</div>
+                  <div class="hs-label">الإنجاز الكلي</div>
+                </div>
+                <div class="hero-stat">
+                  <div class="hs-num green" id="dash-completed-days">0</div>
+                  <div class="hs-label">أيام مكتملة</div>
+                </div>
+                <div class="hero-stat">
+                  <div class="hs-num" id="dash-streak" style="color:var(--brand-orange)">0 🔥</div>
+                  <div class="hs-label">سلسلة الأيام</div>
+                </div>
+                <div class="hero-stat">
+                  <div class="hs-num" id="dash-tasks-done" style="color:var(--brand-blue)">0</div>
+                  <div class="hs-label">مهام مكتملة</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quote Card -->
+          <div class="quote-card" id="dash-quote">
+            <div class="quote-icon">💬</div>
+            <div>
+              <div class="quote-text">"الفرق بين الناجح والفاشل هو الالتزام في الأيام الصعبة."</div>
+              <div class="quote-author">— الـ Mentor</div>
+            </div>
+          </div>
+
+          <!-- KPI Cards -->
+          <div class="kpi-grid">
+            <div class="kpi-card kc-red">
+              <div class="kpi-icon">📊</div>
+              <div class="kpi-value" id="kpi-progress">0%</div>
+              <div class="kpi-label">الإنجاز الكلي</div>
+            </div>
+            <div class="kpi-card kc-green">
+              <div class="kpi-icon">✅</div>
+              <div class="kpi-value" id="kpi-completed">0</div>
+              <div class="kpi-label">أيام مكتملة</div>
+            </div>
+            <div class="kpi-card kc-orange">
+              <div class="kpi-icon">📅</div>
+              <div class="kpi-value" id="kpi-remaining">12</div>
+              <div class="kpi-label">أيام متبقية</div>
+            </div>
+            <div class="kpi-card kc-blue">
+              <div class="kpi-icon">📋</div>
+              <div class="kpi-value" id="kpi-tasks">0</div>
+              <div class="kpi-label">مهام مكتملة</div>
+            </div>
+            <div class="kpi-card kc-purple">
+              <div class="kpi-icon">🔥</div>
+              <div class="kpi-value" id="kpi-streak">0</div>
+              <div class="kpi-label">سلسلة الأيام</div>
+            </div>
+          </div>
+
+          <!-- Quick Start -->
+          <div style="margin-bottom:20px;display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+            <h2 style="font-size:18px;font-weight:900;color:var(--text-primary)">📅 الأيام الأخيرة</h2>
+            <button class="btn btn-ghost btn-sm" onclick="Router.navigate('study-plan')">عرض الكل ←</button>
+          </div>
+          <div class="days-grid" id="dash-days-grid">
+            <!-- Rendered by JS -->
+          </div>
+
+          <!-- Quick Actions -->
+          <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:20px;margin-bottom:20px">
+            <h3 style="font-size:15px;font-weight:800;color:var(--text-primary);margin-bottom:16px">⚡ وصول سريع</h3>
+            <div style="display:flex;flex-wrap:wrap;gap:10px">
+              <button class="btn btn-secondary" onclick="Router.navigate('question-banks')">❓ بنك الأسئلة</button>
+              <button class="btn btn-secondary" onclick="Router.navigate('cheat-sheets')">📋 Cheat Sheets</button>
+              <button class="btn btn-secondary" onclick="Router.navigate('hr-prep')">🤝 المقابلة</button>
+              <button class="btn btn-secondary" onclick="Quiz.open('linux_basics')">🐧 كويز لينكس</button>
+              <button class="btn btn-secondary" onclick="Quiz.open('networking_basics')">🌐 كويز شبكات</button>
+              <button class="btn btn-secondary" onclick="Quiz.open('oop_basics')">🔷 كويز OOP</button>
+              <button class="btn btn-secondary" onclick="Quiz.open('english_vocab')">🇬🇧 كويز إنجليزي</button>
+            </div>
+          </div>
+
+          <!-- Official Links from Screenshots -->
+          <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:20px;margin-bottom:24px">
+            <h3 style="font-size:15px;font-weight:800;color:var(--text-primary);margin-bottom:12px">🔗 الروابط والمصادر الرسمية للتحضير</h3>
+            <p style="font-size:12px;color:var(--text-muted);margin-bottom:16px">كل روابط وبوستات قناة التحضير الرسمية مجمعة ومتاحة بلمسة واحدة:</p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">
+              
+              <!-- ITI Registration Portal -->
+              <a href="https://iti.gov.eg/programs/139758dc-e1ee-4d2c-ba87-08dbe615d378/intakes/de3fa682-88c3-45e1-aa0c-e24bf47d5071" target="_blank" rel="noopener" style="
+                display:flex;align-items:center;gap:12px;padding:12px;background:var(--bg-tertiary);
+                border-radius:12px;text-decoration:none;transition:var(--transition);border:1px solid var(--border-subtle);
+              " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+                <span style="font-size:24px">🏛️</span>
+                <div>
+                  <div style="font-size:13px;font-weight:800;color:var(--text-primary)">بوابة تقديم ITI الرسمية</div>
+                  <div style="font-size:11px;color:var(--text-muted)">رابط التقديم المباشر للمنحة</div>
+                </div>
+              </a>
+
+              <!-- AssessmentDay IQ Practice -->
+              <a href="https://member.assessmentday.com/member/member-area#/" target="_blank" rel="noopener" style="
+                display:flex;align-items:center;gap:12px;padding:12px;background:var(--bg-tertiary);
+                border-radius:12px;text-decoration:none;transition:var(--transition);border:1px solid var(--border-subtle);
+              " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+                <span style="font-size:24px">🧠</span>
+                <div>
+                  <div style="font-size:13px;font-weight:800;color:var(--text-primary)">منصة AssessmentDay للـ IQ</div>
+                  <div style="font-size:11px;color:var(--text-muted)">مصدر جديد للتدريب على الأنماط</div>
+                </div>
+              </a>
+
+              <!-- WhatsApp Channel -->
+              <a href="https://whatsapp.com/channel/0029Vbd2Xz8GzzKvx49Io715" target="_blank" rel="noopener" style="
+                display:flex;align-items:center;gap:12px;padding:12px;background:var(--bg-tertiary);
+                border-radius:12px;text-decoration:none;transition:var(--transition);border:1px solid var(--border-subtle);
+              " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+                <span style="font-size:24px">💬</span>
+                <div>
+                  <div style="font-size:13px;font-weight:800;color:var(--text-primary)">قناة الواتساب للتحضير</div>
+                  <div style="font-size:11px;color:var(--text-muted)">المصدر الأساسي للمعلومات</div>
+                </div>
+              </a>
+
+              <!-- IQ PlayList -->
+              <a href="https://youtube.com/playlist?list=PLbJF4g421wqnghrrFERie3mGPTkfkBttC" target="_blank" rel="noopener" style="
+                display:flex;align-items:center;gap:12px;padding:12px;background:var(--bg-tertiary);
+                border-radius:12px;text-decoration:none;transition:var(--transition);border:1px solid var(--border-subtle);
+              " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+                <span style="font-size:24px">▶</span>
+                <div>
+                  <div style="font-size:13px;font-weight:800;color:var(--text-primary)">فيديوهات شرح الـ IQ</div>
+                  <div style="font-size:11px;color:var(--text-muted)">بلاي ليست اليوتيوب الرسمية</div>
+                </div>
+              </a>
+
+              <!-- LinkedIn Share -->
+              <a href="https://www.linkedin.com/posts/mohamed-whdan_iti-share-7483433843853758464-AxKz/?utm_source=share&utm_medium=member_android" target="_blank" rel="noopener" style="
+                display:flex;align-items:center;gap:12px;padding:12px;background:var(--bg-tertiary);
+                border-radius:12px;text-decoration:none;transition:var(--transition);border:1px solid var(--border-subtle);
+              " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+                <span style="font-size:24px">💼</span>
+                <div>
+                  <div style="font-size:13px;font-weight:800;color:var(--text-primary)">بوست التقديم والتراكات</div>
+                  <div style="font-size:11px;color:var(--text-muted)">منشور المهندس محمد وهدان</div>
+                </div>
+              </a>
+
+              <!-- AI Jobs Channel -->
+              <a href="https://whatsapp.com/channel/0029Vb8LKed7dmeV7rf9r338" target="_blank" rel="noopener" style="
+                display:flex;align-items:center;gap:12px;padding:12px;background:var(--bg-tertiary);
+                border-radius:12px;text-decoration:none;transition:var(--transition);border:1px solid var(--border-subtle);
+              " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+                <span style="font-size:24px">🚀</span>
+                <div>
+                  <div style="font-size:13px;font-weight:800;color:var(--text-primary)">قناة AI Jobs لعروض العمل</div>
+                  <div style="font-size:11px;color:var(--text-muted)">للفرص والوظائف اليومية</div>
+                </div>
+              </a>
+
+            </div>
+          </div>
+
+          <!-- Gold Files / Bullet PDFs -->
+          <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:20px;margin-bottom:24px">
+            <h3 style="font-size:15px;font-weight:800;color:var(--text-primary);margin-bottom:12px">📂 ملخصات وملفات القبول الذهبية</h3>
+            <p style="font-size:12px;color:var(--text-muted);margin-bottom:16px">افتح أهم ملفات وتلخيصات الامتحانات السابقة مباشرة بلمسة واحدة:</p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">
+              
+              <!-- Tech SD Interview PDF -->
+              <button onclick="PDFModal.open('Acceptance Phase (SD)-20260716T021758Z-1-001/Acceptance Phase (SD)/Tech Interview/اسئلة الـTechnical Interview لـTrack SD.pdf', 'أسئلة انترفيو تقني لـ SD')" style="
+                display:flex;align-items:center;gap:12px;padding:12px;background:var(--bg-tertiary);
+                border-radius:12px;transition:var(--transition);border:1px solid var(--border-subtle);cursor:pointer;
+                text-align:right;font-family:'Cairo',sans-serif;width:100%;
+              " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+                <span style="font-size:24px">💻</span>
+                <div>
+                  <div style="font-size:13px;font-weight:800;color:var(--text-primary)">أسئلة انترفيو SD</div>
+                  <div style="font-size:11px;color:var(--text-muted)">ملخص أسئلة التخصص المكررة</div>
+                </div>
+              </button>
+
+              <!-- Soft Skills / HR Interview PDF -->
+              <button onclick="PDFModal.open('Acceptance Phase (SD)-20260716T021758Z-1-001/Acceptance Phase (SD)/Final Interview/__جميع_أسئلة_وإجابات_انترفيو_السوفت_سكيلز_والإتش_آر_.pdf', 'جميع أسئلة وإجابات انترفيو السوفت سكيلز')" style="
+                display:flex;align-items:center;gap:12px;padding:12px;background:var(--bg-tertiary);
+                border-radius:12px;transition:var(--transition);border:1px solid var(--border-subtle);cursor:pointer;
+                text-align:right;font-family:'Cairo',sans-serif;width:100%;
+              " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+                <span style="font-size:24px">🤝</span>
+                <div>
+                  <div style="font-size:13px;font-weight:800;color:var(--text-primary)">أسئلة وإجابات الـ HR</div>
+                  <div style="font-size:11px;color:var(--text-muted)">الملف الكامل للمقابلة النهائية</div>
+                </div>
+              </button>
+
+              <!-- IQ Summary PDF -->
+              <button onclick="PDFModal.open('Acceptance Phase (SD)-20260716T021758Z-1-001/Acceptance Phase (SD)/IQ Exam/خلاصة IQ.pdf', 'خلاصة IQ')" style="
+                display:flex;align-items:center;gap:12px;padding:12px;background:var(--bg-tertiary);
+                border-radius:12px;transition:var(--transition);border:1px solid var(--border-subtle);cursor:pointer;
+                text-align:right;font-family:'Cairo',sans-serif;width:100%;
+              " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+                <span style="font-size:24px">🧠</span>
+                <div>
+                  <div style="font-size:13px;font-weight:800;color:var(--text-primary)">خلاصة الـ IQ الشاملة</div>
+                  <div style="font-size:11px;color:var(--text-muted)">ملخص أهم القوانين والمسائل</div>
+                </div>
+              </button>
+
+              <!-- English Summary PDF -->
+              <button onclick="PDFModal.open('Acceptance Phase (SD)-20260716T021758Z-1-001/Acceptance Phase (SD)/EN Exam/اهم ملف.pdf', 'أهم ملف إنجليزي')" style="
+                display:flex;align-items:center;gap:12px;padding:12px;background:var(--bg-tertiary);
+                border-radius:12px;transition:var(--transition);border:1px solid var(--border-subtle);cursor:pointer;
+                text-align:right;font-family:'Cairo',sans-serif;width:100%;
+              " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+                <span style="font-size:24px">🇬🇧</span>
+                <div>
+                  <div style="font-size:13px;font-weight:800;color:var(--text-primary)">أهم ملف إنجليزي</div>
+                  <div style="font-size:11px;color:var(--text-muted)">مفردات وقواعد الامتحان المكررة</div>
+                </div>
+              </button>
+
+            </div>
+          </div>
+
+          <!-- Mentor Protocol -->
+          <div style="background:linear-gradient(135deg,var(--brand-navy),#0f3460);border-radius:var(--radius-xl);padding:28px;color:white;position:relative;overflow:hidden">
+            <div style="position:absolute;top:-20px;right:-20px;font-size:100px;opacity:0.05">🎯</div>
+            <div style="position:relative;z-index:1">
+              <h3 style="font-size:18px;font-weight:800;color:var(--brand-orange);margin-bottom:12px">🎯 بروتوكول الـ Mentor اليومي</h3>
+              <p style="color:rgba(255,255,255,0.85);font-size:14px;line-height:1.8;margin-bottom:16px">
+                في آخر كل يوم، ابعتلي التقرير ده وأنا هكويزك بـ 20 سؤال، هصحح معاك، وهولّدلك مهام اليوم التاني:
+              </p>
+              <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:var(--radius-md);padding:16px;font-size:13px;color:rgba(255,255,255,0.9);line-height:2.2;font-family:'JetBrains Mono',monospace;direction:rtl">
+                📅 اليوم [رقم] اتخلص<br/>
+                ✅ اللي اتعملته: ...<br/>
+                ⚠️ اللي واجهتني فيه: ...<br/>
+                ❓ أسئلة ملقتش ليها إجابة: ...<br/>
+                💪 مستوى ثقتي (1-10): ...
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== STUDY PLAN ==================== -->
+        <div id="view-study-plan" class="view hidden">
+          <div style="margin-bottom:20px">
+            <h2 style="font-size:22px;font-weight:900;color:var(--text-primary);margin-bottom:6px">📅 خطة الدراسة الكاملة</h2>
+            <p style="font-size:13px;color:var(--text-muted)">اضغط على أي يوم لعرض المهام التفصيلية</p>
+          </div>
+
+          <!-- Filter Bar -->
+          <div class="filter-bar">
+            <div class="filter-chip active" onclick="filterDays('all',this)">الكل</div>
+            <div class="filter-chip" onclick="filterDays('pending',this)">⏳ لم يبدأ</div>
+            <div class="filter-chip" onclick="filterDays('inprogress',this)">🔄 جاري</div>
+            <div class="filter-chip" onclick="filterDays('completed',this)">✅ مكتمل</div>
+            <div class="filter-chip" onclick="filterDays('mock',this)">🔴 Mock</div>
+          </div>
+
+          <div class="days-grid" id="plan-days-grid">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- ==================== DAY DETAIL ==================== -->
+        <div id="view-day-detail" class="view hidden">
+          <!-- Rendered by JS -->
+        </div>
+
+        <!-- ==================== QUESTION BANKS ==================== -->
+        <div id="view-question-banks" class="view hidden">
+          <!-- Rendered by JS -->
+        </div>
+
+        <!-- ==================== CHEAT SHEETS ==================== -->
+        <div id="view-cheat-sheets" class="view hidden">
+          <!-- Rendered by JS -->
+        </div>
+
+        <!-- ==================== HR PREP ==================== -->
+        <div id="view-hr-prep" class="view hidden">
+          <!-- Rendered by JS -->
+        </div>
+
+        <!-- ==================== PROGRESS ==================== -->
+        <div id="view-progress" class="view hidden">
+          <!-- Rendered by JS -->
+        </div>
+
+      </div><!-- /page-content -->
+    </div><!-- /main-scroll -->
+  </main>
+</div><!-- /app-wrapper -->
+
+<!-- ===================== SEARCH OVERLAY ===================== -->
+<div class="search-overlay" id="search-overlay">
+  <div class="search-modal">
+    <div class="search-modal-header">
+      <span style="font-size:18px;color:var(--text-muted)">🔍</span>
+      <input type="text" class="search-modal-input" id="search-modal-input" placeholder="ابحث في الخطة — Linux, SQL, OOP, شبكات..." />
+      <button class="icon-btn" onclick="UI.closeSearch()" style="font-size:13px">✕</button>
+    </div>
+    <div class="search-results" id="search-results">
+      <div class="search-empty">ابدأ الكتابة للبحث في الخطة 🔍</div>
+    </div>
+    <div style="padding:12px 16px;border-top:1px solid var(--border-subtle);display:flex;gap:12px;font-size:11px;color:var(--text-muted)">
+      <span>↵ للانتقال</span>
+      <span>ESC للإغلاق</span>
+      <span>Ctrl+K للفتح</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== VIDEO MODAL ===================== -->
+<div class="modal-overlay" id="video-modal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <span style="font-size:18px">▶</span>
+      <div class="modal-title" id="video-modal-title">فيديو</div>
+      <button class="modal-close" onclick="VideoModal.close()">✕</button>
+    </div>
+    <div class="modal-body" style="padding:16px">
+      <!-- Content injected dynamically by VideoModal.open() -->
+      <div id="video-embed-wrap"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== PDF MODAL ===================== -->
+<div class="modal-overlay" id="pdf-modal">
+  <div class="modal-box fullscreen" style="flex-direction:column">
+    <div class="modal-header">
+      <span style="font-size:18px">📄</span>
+      <div class="modal-title" id="pdf-modal-title">PDF</div>
+      <div style="display:flex;gap:8px;margin-right:auto">
+        <button class="pdf-btn" onclick="PDFModal.openExternal()" title="فتح في تاب جديد">🔗 فتح خارجي</button>
+        <button class="pdf-btn" onclick="PDFModal.download()" title="تحميل">⬇ تحميل</button>
+      </div>
+      <button class="modal-close" onclick="PDFModal.close()">✕</button>
+    </div>
+    <!-- Old page-nav toolbar (hidden for iframe mode, shown for pdfjs) -->
+    <div class="pdf-toolbar" id="pdf-toolbar-controls" style="display:none">
+      <button class="pdf-btn" onclick="PDFModal.prevPage()">← السابق</button>
+      <span class="pdf-page-info">
+        صفحة <span id="pdf-page-current">1</span> من <span id="pdf-page-total">?</span>
+      </span>
+      <button class="pdf-btn" onclick="PDFModal.nextPage()">التالي →</button>
+      <button class="pdf-btn" onclick="PDFModal.zoomOut()">🔍−</button>
+      <button class="pdf-btn" onclick="PDFModal.zoomIn()">🔍+</button>
+    </div>
+    <div id="pdf-canvas-wrap" style="flex:1;overflow:auto;display:flex;justify-content:center;background:var(--bg-tertiary);border-radius:0 0 20px 20px">
+      <div class="pdf-loading">⏳ جاري التحميل...</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== QUIZ MODAL ===================== -->
+<div class="modal-overlay" id="quiz-modal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <span style="font-size:18px">📝</span>
+      <div class="modal-title" id="quiz-modal-title">كويز</div>
+      <button class="modal-close" onclick="Quiz.close()">✕</button>
+    </div>
+    <div class="modal-body" id="quiz-body">
+      <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="quiz-progress-fill"></div></div>
+      <div class="quiz-q-counter" id="quiz-q-counter"></div>
+      <div class="quiz-question" id="quiz-question"></div>
+      <div class="quiz-options" id="quiz-options"></div>
+      <div class="quiz-nav" id="quiz-nav">
+        <button class="btn btn-secondary btn-sm" id="quiz-skip-btn" onclick="Quiz.skip()">تخطي ←</button>
+        <button class="btn btn-primary btn-sm" id="quiz-next-btn" onclick="Quiz.next()" style="display:none">التالي ←</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== CELEBRATION ===================== -->
+<div class="celebration-overlay" id="celebration-overlay">
+  <div id="confetti-container"></div>
+  <div class="celebration-card">
+    <div class="confetti-emoji">🎉</div>
+    <div class="celebrate-title">أحسنت!</div>
+    <div class="celebrate-msg" id="celebrate-msg">ممتاز! أنهيت اليوم ده بنجاح!</div>
+    <div class="celebrate-actions">
+      <button class="btn btn-primary" id="celebrate-next-btn" onclick="">اليوم التالي →</button>
+      <button class="btn btn-secondary" onclick="document.getElementById('celebration-overlay').classList.remove('show')">إغلاق</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== BOTTOM NAVIGATION (Android/Mobile) ===================== -->
+<nav class="bottom-nav" id="bottom-nav" role="navigation" aria-label="التنقل الرئيسي">
+  <div class="bottom-nav-inner">
+
+    <button class="bnav-item active" id="bnav-dashboard" onclick="Router.navigate('dashboard');_bnavActivate('bnav-dashboard')">
+      <span class="bnav-icon">🏠</span>
+      الرئيسية
+    </button>
+
+    <button class="bnav-item" id="bnav-study-plan" onclick="Router.navigate('study-plan');_bnavActivate('bnav-study-plan')">
+      <span class="bnav-icon">📅</span>
+      الخطة
+    </button>
+
+
+
+    <button class="bnav-item" id="bnav-question-banks" onclick="Router.navigate('question-banks');_bnavActivate('bnav-question-banks')">
+      <span class="bnav-icon">❓</span>
+      كويز
+    </button>
+
+    <button class="bnav-item" id="bnav-progress" onclick="Router.navigate('progress');_bnavActivate('bnav-progress')">
+      <span class="bnav-icon">📈</span>
+      تقدمي
+    </button>
+
+  </div>
+</nav>
+<div class="toast-container" id="toast-container"></div>
+
+<!-- ===================== SCRIPTS ===================== -->
+<script src="js/config.js"></script>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+
+<script>
+  // ── PDF.js Worker Setup ──
+  if (typeof pdfjsLib !== 'undefined') {
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+  }
+
+  // ── Loading Screen ──
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      const loader = document.getElementById('loading-screen');
+      if (loader) {
+        loader.classList.add('fade-out');
+        setTimeout(() => loader.remove(), 500);
+      }
+    }, 1200);
+  });
+
+  // ── Filter Days Function ──
+  function filterDays(filter, btn) {
+    document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+    btn.classList.add('active');
+
+    const cards = document.querySelectorAll('#plan-days-grid .day-overview-card');
+    cards.forEach(card => {
+      const dayId = parseInt(card.querySelector('.doc-num')?.textContent);
+      if (!dayId) return;
+
+      let show = true;
+      if (filter === 'completed') show = State.getDayProgress(dayId) === 100;
+      else if (filter === 'pending') show = State.getDayProgress(dayId) === 0;
+      else if (filter === 'inprogress') { const p = State.getDayProgress(dayId); show = p > 0 && p < 100; }
+      else if (filter === 'mock') {
+        const day = STUDY_DATA.days.find(d => d.id === dayId);
+        show = day?.isSpecial || false;
+      }
+
+      card.style.display = show ? '' : 'none';
+    });
+  }
+
+  // ── Dashboard data binding ──
+  document.addEventListener('DOMContentLoaded', () => {
+    const hero = document.getElementById('dash-hero');
+    if (hero) {
+      const nums = hero.querySelectorAll('.hs-num');
+      if (nums[0]) nums[0].id = 'dash-overall-pct';
+      if (nums[1]) nums[1].id = 'dash-completed-days';
+    }
+  });
+
+  // ── Bottom Nav Activate ──
+  function _bnavActivate(id) {
+    document.querySelectorAll('.bnav-item').forEach(el => el.classList.remove('active'));
+    const el = document.getElementById(id);
+    if (el) el.classList.add('active');
+  }
+
+  // ── Sync bottom nav with Router ──
+  const _routeToNav = {
+    'dashboard':      'bnav-dashboard',
+    'study-plan':     'bnav-study-plan',
+    'day-detail':     'bnav-study-plan',
+    'question-banks': 'bnav-question-banks',
+    'cheat-sheets':   'bnav-question-banks',
+    'hr-prep':        'bnav-question-banks',
+    'progress':       'bnav-progress',
+  };
+
+  const _origNavigate = Router.navigate.bind(Router);
+  Router.navigate = function(view, params) {
+    _origNavigate(view, params);
+    const navId = _routeToNav[view];
+    if (navId) _bnavActivate(navId);
+  };
+
+  // ── VideoModal: accept optional 3rd arg searchQuery ──
+  const _origVideoOpen = VideoModal.open.bind(VideoModal);
+  VideoModal.open = function(url, title, searchQuery) {
+    if (!url && searchQuery) {
+      // No direct URL → open YouTube search for the topic
+      const q = encodeURIComponent(searchQuery + ' شرح عربي');
+      const searchUrl = 'https://www.youtube.com/results?search_query=' + q;
+      window.open(searchUrl, '_blank');
+      return;
+    }
+    _origVideoOpen(url, title);
+  };
+
+  // ── PWA Install Banner (Android Chrome) ──
+  let _deferredPrompt;
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    _deferredPrompt = e;
+    // Show a subtle install toast after 10 seconds
+    setTimeout(() => {
+      if (_deferredPrompt) {
+        const banner = document.createElement('div');
+        banner.style.cssText = `
+          position:fixed;bottom:calc(var(--bottom-nav-h,64px) + 12px);right:12px;left:12px;
+          background:linear-gradient(135deg,#1a1a2e,#0f3460);
+          border:1px solid rgba(233,69,96,0.3);
+          color:white;border-radius:14px;padding:14px 16px;
+          display:flex;align-items:center;gap:12px;
+          box-shadow:0 8px 32px rgba(0,0,0,0.4);
+          z-index:9999;font-family:'Cairo',sans-serif;font-size:13px;
+          animation:slideUp 0.3s ease;
+        `;
+        banner.innerHTML = `
+          <span style="font-size:28px">🎯</span>
+          <div style="flex:1">
+            <div style="font-weight:800;margin-bottom:2px">أضف التطبيق للهوم سكرين</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.7)">شغّله بدون إنترنت في أي وقت</div>
+          </div>
+          <button onclick="_installPWA()" style="
+            background:linear-gradient(135deg,#e94560,#f5a623);color:white;
+            border:none;padding:8px 16px;border-radius:99px;font-size:12px;
+            font-weight:800;cursor:pointer;font-family:'Cairo',sans-serif;
+          ">تثبيت</button>
+          <button onclick="this.closest('div').remove()" style="
+            background:none;border:none;color:rgba(255,255,255,0.5);
+            font-size:18px;cursor:pointer;padding:4px;
+          ">✕</button>
+        `;
+        document.body.appendChild(banner);
+        setTimeout(() => banner.remove(), 12000);
+      }
+    }, 10000);
+  });
+
+  function _installPWA() {
+    if (_deferredPrompt) {
+      _deferredPrompt.prompt();
+      _deferredPrompt.userChoice.then(() => { _deferredPrompt = null; });
+    }
+  }
+</script>
+</body>
+</html>
