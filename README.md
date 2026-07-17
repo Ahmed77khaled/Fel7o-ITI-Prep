@@ -1,4 +1,4 @@
-# 🎯 Fel7o ITI Prep — منصة فيلحو للتأهيل للـ ITI
+# 🎯 Fel7o ITI Prep — منصة فلحو للتأهيل للـ ITI
 
 <p align="center">
   <img src="https://img.shields.io/badge/Version-2.0-blueviolet?style=for-the-badge" alt="Version 2.0" />
