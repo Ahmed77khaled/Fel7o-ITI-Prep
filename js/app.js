@@ -1169,7 +1169,7 @@ const Render = (() => {
       const d2 = new Date(examDate.getFullYear(), examDate.getMonth(), examDate.getDate());
       const diffTime = d2.getTime() - d1.getTime();
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-      remaining = Math.max(0, diffDays);
+      remaining = Math.max(0, diffDays + 1);
     }
     if (document.getElementById('kpi-progress'))   document.getElementById('kpi-progress').textContent   = pct + '%';
     if (document.getElementById('kpi-completed'))  document.getElementById('kpi-completed').textContent  = completedDays;
