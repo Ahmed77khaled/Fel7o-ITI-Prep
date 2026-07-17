@@ -1217,6 +1217,18 @@ HAVING COUNT(*) > 5;
 SELECT * FROM t
 WHERE id IN (SELECT id FROM t2);`
     },
+    osi: {
+      title: "OSI Model",
+      data: [
+        { layer: "7", name: "Application (التطبيق)", protocols: "HTTP, HTTPS, FTP, SMTP, DNS", mnemonic: "All" },
+        { layer: "6", name: "Presentation (العرض)", protocols: "SSL, TLS, JPEG, GIF, MP3", mnemonic: "People" },
+        { layer: "5", name: "Session (الجلسة)", protocols: "NetBIOS, PPTP, RPC, SOCKS", mnemonic: "Seem" },
+        { layer: "4", name: "Transport (النقل)", protocols: "TCP, UDP", mnemonic: "To" },
+        { layer: "3", name: "Network (الشبكة)", protocols: "IP (IPv4/IPv6), ICMP, ARP, OSPF", mnemonic: "Need" },
+        { layer: "2", name: "Data Link (ربط البيانات)", protocols: "Ethernet, Wi-Fi (802.11), Switch, MAC", mnemonic: "Data" },
+        { layer: "1", name: "Physical (الفيزيائية)", protocols: "Cables, Hub, Repeater, Fiber Optics", mnemonic: "Processing" }
+      ]
+    },
     ports: {
       title: "Port Numbers الأهم",
       data: [
