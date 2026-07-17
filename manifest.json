@@ -1,7 +1,7 @@
 {
-  "name": "ITI Study Platform",
-  "short_name": "ITI Study",
-  "description": "خطة 12 يوم لاجتياز مرحلة قبول ITI",
+  "name": "Fel7o ITI Prep",
+  "short_name": "Fel7o ITI",
+  "description": "خطة 11 يوم لاجتياز مرحلة قبول ITI",
   "start_url": "./index.html",
   "display": "standalone",
   "orientation": "portrait-primary",
