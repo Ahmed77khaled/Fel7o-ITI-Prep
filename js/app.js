@@ -1277,7 +1277,7 @@ const Render = (() => {
           </div>
           <div class="ddh-progress">
             <div class="ddh-prog-info">
-              <div class="ddh-prog-label">${_t(`تقدم اليوم — ${doneTasks} من ${totalTasks} مهمة`, `Today's Progress — ${doneTasks} of ${totalTasks} tasks`)}</div>
+              <div class="ddh-prog-label" id="day-prog-label">${_t(`تقدم اليوم — ${doneTasks} من ${totalTasks} مهمة`, `Today's Progress — ${doneTasks} of ${totalTasks} tasks`)}</div>
               <div class="ddh-prog-bar"><div class="ddh-prog-fill" id="day-prog-fill" style="width:${pct}%"></div></div>
             </div>
             <div class="ddh-prog-pct" id="day-prog-pct">${pct}%</div>
@@ -1905,6 +1905,16 @@ function toggleTaskDone(taskId, dayId) {
   const pctEl = document.getElementById('day-prog-pct');
   if (fill) fill.style.width = pct + '%';
   if (pctEl) pctEl.textContent = pct + '%';
+
+  const day = STUDY_DATA.days.find(d => d.id === parseInt(dayId));
+  if (day) {
+    const totalTasks = day.sessions.reduce((acc, s) => acc + s.tasks.length, 0);
+    const doneTasks = day.sessions.reduce((acc, s) => acc + s.tasks.filter(t => State.getTaskProgress(t.id).done).length, 0);
+    const label = document.getElementById('day-prog-label');
+    if (label) {
+      label.textContent = _t(`تقدم اليوم — ${doneTasks} من ${totalTasks} مهمة`, `Today's Progress — ${doneTasks} of ${totalTasks} tasks`);
+    }
+  }
 
   UI.updateProgressPill();
 
