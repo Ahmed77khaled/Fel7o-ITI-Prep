@@ -20,6 +20,9 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Fel7o ITI Prep" />
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
   <title>Fel7o ITI Prep — خطة 11 يوم للنجاح</title>
 
   <!-- Fonts -->
@@ -60,7 +63,31 @@
 <!-- ===================== LOADING SCREEN ===================== -->
 <div class="loading-screen" id="loading-screen">
   <div class="loader-content">
-    <div class="loader-logo">🎯</div>
+    <div class="loader-logo">
+      <svg class="loader-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="80" height="80" style="display: block; margin: 0 auto 16px;">
+        <defs>
+          <mask id="rocket-mask-loader">
+            <rect x="0" y="0" width="512" height="512" fill="#FFFFFF" />
+            <line x1="256" y1="260" x2="420" y2="96" stroke="#000000" stroke-width="36" stroke-linecap="round" />
+          </mask>
+        </defs>
+        <g transform="translate(0, -20)">
+          <g mask="url(#rocket-mask-loader)">
+            <path d="M 172,110 L 410,110 L 410,154 L 220,154 L 204,204 L 350,204 L 350,248 L 190,248 L 150,370 L 106,370 Z" fill="#e94560" />
+            <path d="M 256,160 A 100,100 0 1,1 156,260 A 100,100 0 0,1 256,160 Z" fill="none" stroke="#e94560" stroke-width="22" />
+            <circle cx="256" cy="260" r="60" fill="none" stroke="#e94560" stroke-width="20" />
+          </g>
+          <circle cx="256" cy="260" r="25" fill="#e94560" />
+          <line x1="256" y1="260" x2="360" y2="156" stroke="#e94560" stroke-width="16" stroke-linecap="round" />
+          <g transform="translate(360, 156) rotate(45)">
+            <path d="M 0,-40 C 15,-15 15,15 12,30 L -12,30 C -15,15 -15,-15 0,-40 Z" fill="#e94560" />
+            <path d="M -12,10 L -28,30 L -12,24 Z" fill="#e94560" />
+            <path d="M 12,10 L 28,30 L 12,24 Z" fill="#e94560" />
+            <circle cx="0" cy="-5" r="5" fill="#0d0f1a" />
+          </g>
+        </g>
+      </svg>
+    </div>
     <div class="loader-text">Fel7o ITI Prep</div>
     <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
   </div>
@@ -72,7 +99,32 @@
   <!-- ── SIDEBAR ── -->
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-logo">
-      <div class="logo-mark">🎯</div>
+      <div class="logo-mark" style="background: transparent;">
+        <svg class="sidebar-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="34" height="34" style="display: block;">
+          <defs>
+            <mask id="rocket-mask-sidebar">
+              <rect x="0" y="0" width="512" height="512" fill="#FFFFFF" />
+              <line x1="256" y1="260" x2="420" y2="96" stroke="#000000" stroke-width="36" stroke-linecap="round" />
+            </mask>
+          </defs>
+          <rect x="0" y="0" width="512" height="512" rx="112" fill="#131822"/>
+          <g transform="translate(0, -10) scale(0.95)">
+            <g mask="url(#rocket-mask-sidebar)">
+              <path d="M 172,110 L 410,110 L 410,154 L 220,154 L 204,204 L 350,204 L 350,248 L 190,248 L 150,370 L 106,370 Z" fill="#e94560" />
+              <path d="M 256,160 A 100,100 0 1,1 156,260 A 100,100 0 0,1 256,160 Z" fill="none" stroke="#e94560" stroke-width="22" />
+              <circle cx="256" cy="260" r="60" fill="none" stroke="#e94560" stroke-width="20" />
+            </g>
+            <circle cx="256" cy="260" r="25" fill="#e94560" />
+            <line x1="256" y1="260" x2="360" y2="156" stroke="#e94560" stroke-width="16" stroke-linecap="round" />
+            <g transform="translate(360, 156) rotate(45)">
+              <path d="M 0,-40 C 15,-15 15,15 12,30 L -12,30 C -15,15 -15,-15 0,-40 Z" fill="#e94560" />
+              <path d="M -12,10 L -28,30 L -12,24 Z" fill="#e94560" />
+              <path d="M 12,10 L 28,30 L 12,24 Z" fill="#e94560" />
+              <circle cx="0" cy="-5" r="5" fill="#131822" />
+            </g>
+          </g>
+        </svg>
+      </div>
       <div>
         <div class="logo-text">Fel7o ITI Prep</div>
         <div class="logo-sub">11 يوم للنجاح</div>
@@ -701,7 +753,7 @@
           animation:slideUp 0.3s ease;
         `;
         banner.innerHTML = `
-          <span style="font-size:28px">🎯</span>
+          <img src="assets/logo-icon.svg" style="width:36px;height:36px;flex-shrink:0" alt="logo" />
           <div style="flex:1">
             <div style="font-weight:800;margin-bottom:2px">أضف التطبيق للهوم سكرين</div>
             <div style="font-size:11px;color:rgba(255,255,255,0.7)">شغّله بدون إنترنت في أي وقت</div>
